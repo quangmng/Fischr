@@ -3,20 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		C58679AF2CC3701800DAF988 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58679A42CC3701800DAF988 /* Preview Assets.xcassets */; };
+		C58679B02CC3701800DAF988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58679A82CC3701800DAF988 /* Assets.xcassets */; };
+		C58679B12CC3701800DAF988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679A92CC3701800DAF988 /* ContentView.swift */; };
+		C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */; };
+		C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679AB2CC3701800DAF988 /* FischrApp.swift */; };
+		C58679B42CC3701800DAF988 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679AC2CC3701800DAF988 /* Persistence.swift */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C586798A2CC3691F00DAF988 /* Fischr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fischr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C58679A42CC3701800DAF988 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C58679A82CC3701800DAF988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C58679A92CC3701800DAF988 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C58679AB2CC3701800DAF988 /* FischrApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FischrApp.swift; sourceTree = "<group>"; };
+		C58679AC2CC3701800DAF988 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		C58679AE2CC3701800DAF988 /* Fischr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fischr.xcdatamodel; sourceTree = "<group>"; };
+		C58679B52CC3702A00DAF988 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		C586798C2CC3691F00DAF988 /* Fischr */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Fischr;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C58679872CC3691F00DAF988 /* Frameworks */ = {
@@ -32,7 +40,8 @@
 		C58679812CC3691F00DAF988 = {
 			isa = PBXGroup;
 			children = (
-				C586798C2CC3691F00DAF988 /* Fischr */,
+				C58679B52CC3702A00DAF988 /* README.md */,
+				C58679AD2CC3701800DAF988 /* Fischr */,
 				C586798B2CC3691F00DAF988 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +52,51 @@
 				C586798A2CC3691F00DAF988 /* Fischr.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C58679A32CC3701800DAF988 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C58679AC2CC3701800DAF988 /* Persistence.swift */,
+				C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C58679A52CC3701800DAF988 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C58679A42CC3701800DAF988 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C58679A62CC3701800DAF988 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C58679A92CC3701800DAF988 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C58679A72CC3701800DAF988 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C58679AD2CC3701800DAF988 /* Fischr */ = {
+			isa = PBXGroup;
+			children = (
+				C58679A32CC3701800DAF988 /* Model */,
+				C58679A52CC3701800DAF988 /* Preview Content */,
+				C58679A62CC3701800DAF988 /* View */,
+				C58679A72CC3701800DAF988 /* ViewModel */,
+				C58679A82CC3701800DAF988 /* Assets.xcassets */,
+				C58679AB2CC3701800DAF988 /* FischrApp.swift */,
+			);
+			path = Fischr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +113,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				C586798C2CC3691F00DAF988 /* Fischr */,
 			);
 			name = Fischr;
 			packageProductDependencies = (
@@ -86,6 +137,7 @@
 				};
 			};
 			buildConfigurationList = C58679852CC3691F00DAF988 /* Build configuration list for PBXProject "Fischr" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,7 +146,6 @@
 			);
 			mainGroup = C58679812CC3691F00DAF988;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = C586798B2CC3691F00DAF988 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -109,6 +160,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58679AF2CC3701800DAF988 /* Preview Assets.xcassets in Resources */,
+				C58679B02CC3701800DAF988 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +172,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58679B12CC3701800DAF988 /* ContentView.swift in Sources */,
+				C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */,
+				C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */,
+				C58679B42CC3701800DAF988 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,11 +312,14 @@
 				DEVELOPMENT_TEAM = 4YQ66K5T88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Fischr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -284,11 +344,14 @@
 				DEVELOPMENT_TEAM = 4YQ66K5T88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Fischr;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +387,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C58679AE2CC3701800DAF988 /* Fischr.xcdatamodel */,
+			);
+			currentVersion = C58679AE2CC3701800DAF988 /* Fischr.xcdatamodel */;
+			path = Fischr.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C58679822CC3691F00DAF988 /* Project object */;
 }
