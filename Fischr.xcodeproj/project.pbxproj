@@ -16,6 +16,8 @@
 		C58679B42CC3701800DAF988 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679AC2CC3701800DAF988 /* Persistence.swift */; };
 		FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF02CC8884600477041 /* GridView.swift */; };
 		FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF22CC8884F00477041 /* GridBView.swift */; };
+		FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF42CC8D40100477041 /* HomeView.swift */; };
+		FD0BEAF72CC8D8D600477041 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF62CC8D8D600477041 /* PlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		C58679B52CC3702A00DAF988 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FD0BEAF02CC8884600477041 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		FD0BEAF22CC8884F00477041 /* GridBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridBView.swift; sourceTree = "<group>"; };
+		FD0BEAF42CC8D40100477041 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FD0BEAF62CC8D8D600477041 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				FD0BEAF22CC8884F00477041 /* GridBView.swift */,
 				FD0BEAF02CC8884600477041 /* GridView.swift */,
 				C58679A92CC3701800DAF988 /* ContentView.swift */,
+				FD0BEAF42CC8D40100477041 /* HomeView.swift */,
+				FD0BEAF62CC8D8D600477041 /* PlayView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +192,8 @@
 				C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */,
 				C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */,
 				C58679B42CC3701800DAF988 /* Persistence.swift in Sources */,
+				FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */,
+				FD0BEAF72CC8D8D600477041 /* PlayView.swift in Sources */,
 				FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */,
 				C57D61132CC880ED00F49481 /* FischrViewModel.swift in Sources */,
 			);
