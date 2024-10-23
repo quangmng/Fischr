@@ -14,6 +14,8 @@
 		C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */; };
 		C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679AB2CC3701800DAF988 /* FischrApp.swift */; };
 		C58679B42CC3701800DAF988 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679AC2CC3701800DAF988 /* Persistence.swift */; };
+		FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF02CC8884600477041 /* GridView.swift */; };
+		FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF22CC8884F00477041 /* GridBView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		C58679AC2CC3701800DAF988 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C58679AE2CC3701800DAF988 /* Fischr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fischr.xcdatamodel; sourceTree = "<group>"; };
 		C58679B52CC3702A00DAF988 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FD0BEAF02CC8884600477041 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		FD0BEAF22CC8884F00477041 /* GridBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridBView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 		C58679A62CC3701800DAF988 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD0BEAF22CC8884F00477041 /* GridBView.swift */,
+				FD0BEAF02CC8884600477041 /* GridView.swift */,
 				C58679A92CC3701800DAF988 /* ContentView.swift */,
 			);
 			path = View;
@@ -176,9 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C58679B12CC3701800DAF988 /* ContentView.swift in Sources */,
+				FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */,
 				C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */,
 				C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */,
 				C58679B42CC3701800DAF988 /* Persistence.swift in Sources */,
+				FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */,
 				C57D61132CC880ED00F49481 /* FischrViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
