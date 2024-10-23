@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "queen.png",
       "idiom" : "universal",
       "scale" : "1x"
     },

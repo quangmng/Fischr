@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "king.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
