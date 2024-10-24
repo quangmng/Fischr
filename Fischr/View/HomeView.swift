@@ -13,6 +13,7 @@ struct HomeView: View {
 			VStack() {
 				HStack {
 					Text("Sharpen \nyour skills \nand \nchallenge \nyour mind!")
+						.font(.custom("VoidBold", size: 40))
 						.font(.title)
 						.bold()
 					Spacer().frame(width: 60*3)

@@ -19,6 +19,11 @@
 		FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF22CC8884F00477041 /* GridBView.swift */; };
 		FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF42CC8D40100477041 /* HomeView.swift */; };
 		FD0BEAF72CC8D8D600477041 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF62CC8D8D600477041 /* PlayView.swift */; };
+		FD0BEB782CCA325700477041 /* VoidRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB752CCA325700477041 /* VoidRegular.ttf */; };
+		FD0BEB792CCA325700477041 /* VoidLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB732CCA325700477041 /* VoidLight.ttf */; };
+		FD0BEB7A2CCA325700477041 /* VoidBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB722CCA325700477041 /* VoidBold.ttf */; };
+		FD0BEB7B2CCA325700477041 /* VoidMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB742CCA325700477041 /* VoidMedium.ttf */; };
+		FD0BEB7C2CCA325700477041 /* VoidSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB762CCA325700477041 /* VoidSemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,12 @@
 		FD0BEAF22CC8884F00477041 /* GridBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridBView.swift; sourceTree = "<group>"; };
 		FD0BEAF42CC8D40100477041 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FD0BEAF62CC8D8D600477041 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		FD0BEB712CCA320900477041 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FD0BEB722CCA325700477041 /* VoidBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidBold.ttf; sourceTree = "<group>"; };
+		FD0BEB732CCA325700477041 /* VoidLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidLight.ttf; sourceTree = "<group>"; };
+		FD0BEB742CCA325700477041 /* VoidMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidMedium.ttf; sourceTree = "<group>"; };
+		FD0BEB752CCA325700477041 /* VoidRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidRegular.ttf; sourceTree = "<group>"; };
+		FD0BEB762CCA325700477041 /* VoidSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidSemiBold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,14 +126,28 @@
 		C58679AD2CC3701800DAF988 /* Fischr */ = {
 			isa = PBXGroup;
 			children = (
+				FD0BEB712CCA320900477041 /* Info.plist */,
 				C58679A32CC3701800DAF988 /* Model */,
 				C58679A52CC3701800DAF988 /* Preview Content */,
 				C58679A62CC3701800DAF988 /* View */,
 				C58679A72CC3701800DAF988 /* ViewModel */,
 				C58679A82CC3701800DAF988 /* Assets.xcassets */,
 				C58679AB2CC3701800DAF988 /* FischrApp.swift */,
+				FD0BEB772CCA325700477041 /* Fonts */,
 			);
 			path = Fischr;
+			sourceTree = "<group>";
+		};
+		FD0BEB772CCA325700477041 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FD0BEB722CCA325700477041 /* VoidBold.ttf */,
+				FD0BEB732CCA325700477041 /* VoidLight.ttf */,
+				FD0BEB742CCA325700477041 /* VoidMedium.ttf */,
+				FD0BEB752CCA325700477041 /* VoidRegular.ttf */,
+				FD0BEB762CCA325700477041 /* VoidSemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C58679AF2CC3701800DAF988 /* Preview Assets.xcassets in Resources */,
+				FD0BEB782CCA325700477041 /* VoidRegular.ttf in Resources */,
+				FD0BEB792CCA325700477041 /* VoidLight.ttf in Resources */,
+				FD0BEB7A2CCA325700477041 /* VoidBold.ttf in Resources */,
+				FD0BEB7B2CCA325700477041 /* VoidMedium.ttf in Resources */,
+				FD0BEB7C2CCA325700477041 /* VoidSemiBold.ttf in Resources */,
 				C58679B02CC3701800DAF988 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +374,7 @@
 				DEVELOPMENT_TEAM = 4YQ66K5T88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fischr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fischr;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -376,6 +407,7 @@
 				DEVELOPMENT_TEAM = 4YQ66K5T88;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fischr/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Fischr;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
