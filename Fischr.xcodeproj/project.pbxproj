@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C57D61132CC880ED00F49481 /* FischrViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D61122CC880DD00F49481 /* FischrViewModel.swift */; };
+		C57D61852CCA155600F49481 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D61842CCA155600F49481 /* OnboardingView.swift */; };
 		C58679AF2CC3701800DAF988 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58679A42CC3701800DAF988 /* Preview Assets.xcassets */; };
 		C58679B02CC3701800DAF988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58679A82CC3701800DAF988 /* Assets.xcassets */; };
 		C58679B12CC3701800DAF988 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679A92CC3701800DAF988 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		C57D61122CC880DD00F49481 /* FischrViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FischrViewModel.swift; sourceTree = "<group>"; };
+		C57D61842CCA155600F49481 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C586798A2CC3691F00DAF988 /* Fischr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fischr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C58679A42CC3701800DAF988 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C58679A82CC3701800DAF988 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C57D61832CCA152000F49481 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FD0BEAF22CC8884F00477041 /* GridBView.swift */,
+				FD0BEAF02CC8884600477041 /* GridView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C58679812CC3691F00DAF988 = {
 			isa = PBXGroup;
 			children = (
@@ -84,11 +95,11 @@
 		C58679A62CC3701800DAF988 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FD0BEAF22CC8884F00477041 /* GridBView.swift */,
-				FD0BEAF02CC8884600477041 /* GridView.swift */,
+				C57D61832CCA152000F49481 /* Helpers */,
 				C58679A92CC3701800DAF988 /* ContentView.swift */,
 				FD0BEAF42CC8D40100477041 /* HomeView.swift */,
 				FD0BEAF62CC8D8D600477041 /* PlayView.swift */,
+				C57D61842CCA155600F49481 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -190,6 +201,7 @@
 				C58679B12CC3701800DAF988 /* ContentView.swift in Sources */,
 				FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */,
 				C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */,
+				C57D61852CCA155600F49481 /* OnboardingView.swift in Sources */,
 				C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */,
 				C58679B42CC3701800DAF988 /* Persistence.swift in Sources */,
 				FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */,
