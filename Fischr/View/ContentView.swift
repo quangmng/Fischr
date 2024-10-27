@@ -10,8 +10,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationStack {
-            ScrollView {
-                
+            TabView {
+                // embed 1st tab here,
+                ScrollView {
+                    
+                }
             }
         }
     }

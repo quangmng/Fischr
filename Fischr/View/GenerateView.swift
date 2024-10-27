@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct GenerateView: View {
+    
+    @Binding var isFavourite: Bool
+    
     var body: some View {
         NavigationView{
             ScrollView{
@@ -77,14 +80,29 @@ struct GenerateView: View {
                         }
                         
                         
-                        
-                        Text("History (10 recent)")
-                            .font(.headline)
-                            .leading()
-                            .padding(.horizontal)
+                        HStack{
+                            Text("History (10 recent)")
+                                .font(.headline)
+                                .leading()
+                                .padding(.horizontal)
+                            
+                            NavigationLink{
+                                PlayView() //suppose to navigate to all generation view
+                            }label: {
+                                Text("All")
+                                    .foregroundColor(.white)
+                                    .frame(width: 50, height: 1)
+                                    .padding()
+                                    .background(Color.black)
+                                    .cornerRadius(25)
+                            }
+                            .padding()
+                            .frame(height: 5)
+                            
+                        }
                         ScrollView(.horizontal){
                             
-                            HistoryItemView()
+                            HistoryItemView(isFavourite: $isFavourite)
                                 .padding()
                             
                             // Use ForEach loop to display recent matches using history Item View
@@ -104,7 +122,7 @@ struct GenerateView: View {
 }
 
 #Preview {
-    GenerateView()
+    GenerateView(isFavourite: .constant(false))
 }
 
 
@@ -119,4 +137,12 @@ struct GenerateView: View {
 //}
 //NavigationLink("", destination: PlayView(), isActive: $pTapped)
 //
+//}
+
+//struct GenerateView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let gvm = GenerateViewModel()
+//
+//        GenerateView(ge: .constant(gvm.storedGeneration[0]))
+//    }
 //}

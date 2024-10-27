@@ -8,27 +8,46 @@
 import SwiftUI
 
 struct HistoryItemView: View {
+    
+    @Binding var isFavourite: Bool
+    
     var body: some View {
         VStack(alignment: .leading){
-           Image("Bishop")
-                .resizable()
-                .frame(width: 15, height: 30)
-                .padding(.bottom, 8)
-                .center()
+            HStack{
+                Image("Bishop")
+                    .resizable()
+                    .frame(width: 20, height: 40)
+                    .padding(.bottom, 8)
+                    .traling()
+                
+                Button{
+                    
+                    isFavourite.toggle()
+                    
+                }label: {
+                    Image(systemName: isFavourite ? "heart.fill" : "heart")
+                        .foregroundStyle(isFavourite ? .red : .white)
+                }
+                .background(Circle()
+                    .frame(width: 100, height: 40))
+                .padding(.horizontal)
+                .padding(.bottom, 40)
+                .traling()
+            }
             
             HStack(spacing: 2){
-                Text("White wins")
-                    .font(.caption)
+                Text("Generation 437")
+                    .font(.headline)
                     .center()
             }
             
-            Text("Date of match")
+            Text("Date of generation")
                 .font(.caption)
                 .center()
                 
             
         }
-        .frame(width: 100, height: 100)
+        .frame(width: 135, height: 135)
         .overlay{
             RoundedRectangle(cornerRadius: 15)
                 .stroke(Color(.gray), lineWidth: 2)
@@ -37,5 +56,16 @@ struct HistoryItemView: View {
 }
 
 #Preview {
-    HistoryItemView()
+    HistoryItemView(isFavourite: .constant(false))
 }
+
+
+//MARK:
+//think a way to combine this with coredata
+//struct HistoryItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let gvm = GenerateViewModel()
+//
+//        HistoryItemView(ge: .constant(gvm.storedGeneration[0]))
+//    }
+//}
