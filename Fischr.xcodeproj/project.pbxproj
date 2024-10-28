@@ -109,8 +109,8 @@
 		C58679A32CC3701800DAF988 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C58679AC2CC3701800DAF988 /* Persistence.swift */,
 				C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */,
+				C58679AC2CC3701800DAF988 /* Persistence.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
