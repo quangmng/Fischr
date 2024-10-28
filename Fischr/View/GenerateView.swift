@@ -18,11 +18,11 @@ struct GenerateView: View {
 				
 				VStack(alignment: .leading) {
 					
-					Text("Generate")
-						.font(.title)
-						.fontWeight(.bold)
-						.padding()
-						.leading()
+//					Text("Generate")
+//						.font(.title)
+//						.fontWeight(.bold)
+//						.padding()
+//						.leading()
 					
 					Text("Modes")
 						.font(.headline)
@@ -124,6 +124,7 @@ struct GenerateView: View {
 				}
 				
 			}
+			.navigationTitle("Generate")
 		}
 	}
 }
