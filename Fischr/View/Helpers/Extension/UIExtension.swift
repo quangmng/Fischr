@@ -22,7 +22,7 @@ extension View{
 	}
 	
 	func bottomLeading() -> some View {
-		self.frame(maxWidth: .infinity, alignment: .bottomLeading)
+		self.frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .bottomLeading)
 	}
 }
 

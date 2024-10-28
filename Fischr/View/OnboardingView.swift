@@ -20,7 +20,7 @@ struct OnboardingView: View {
                     .tag(0)
                 
                 // Step 2
-                OnboardingStepView(title: "Track", description: "add text here")
+                OnboardingStepView(title: "Generate", description: "add text here")
                     .tag(1)
                 
                 // Step 3
@@ -68,7 +68,7 @@ struct OnboardingStepView: View {
                 Image(systemName: "film.stack")
                     .symbolEffect(.bounce.up.byLayer, value: animationCount)
                     .font(.system(size: 50))
-            } else if title == "Track" {
+            } else if title == "Generate" {
                 Image(systemName: "list.star")
                     .symbolEffect(.bounce.up.byLayer, value: animationCount)
                     .font(.system(size: 50))

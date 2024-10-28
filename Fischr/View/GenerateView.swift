@@ -14,6 +14,8 @@ struct GenerateView: View {
 	var body: some View {
 		NavigationView{
 			ScrollView{
+				
+				
 				VStack(alignment: .leading) {
 					
 					Text("Generate")
@@ -27,36 +29,32 @@ struct GenerateView: View {
 						.leading()
 						.padding(.horizontal)
 					
-					ZStack(alignment: .bottomLeading) {
+					ZStack() {
 						
-						ZStack{
-							RoundedRectangle(cornerRadius: 20)
-								.foregroundStyle(Color.gray)
-								.frame(height: 200)
-								.padding(.horizontal, 20)
-							
-							Image(systemName: "shuffle")
-								.font(.system(size: 30))
-								.foregroundColor(.black)
-								.position(x:200, y: 100)
-						}
+						RoundedRectangle(cornerRadius: 20)
+							.foregroundStyle(Color.fischrTab)
+							.frame(height: 180)
+							.padding(.horizontal, 20)
 						
-						VStack(alignment: .leading){
-								// Text below the icon
+						Image(systemName: "shuffle")
+							.resizable()
+							.frame(width: 120/2, height: 100/2)
+//							.font(.system(size: 30))
+							.foregroundColor(.black)
+						
+						VStack {
 							Text("Random")
-								.font(.title2) // Text style
-								.foregroundColor(.black)
-								//.leading()
-								.padding([.leading, .bottom], 16)
-								.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
+								.font(.custom("VoidRegular", size: 35))
+								.bottomLeading()
+								.padding(.horizontal, 40)
 						}
-//						.padding()
+						.padding(.bottom, 15)
 					}
 					
 					HStack {
 						ZStack {
 							RoundedRectangle(cornerRadius: 20)
-								.foregroundStyle(Color.gray)
+								.foregroundStyle(Color.blackPink)
 								.frame(width: .infinity, height: 150)
 							
 							VStack {
@@ -64,34 +62,33 @@ struct GenerateView: View {
 									.resizable()
 									.frame(width: 80, height: 60)
 								
-								Text("By Number")
-									.font(.title2)
-									.fontWeight(.bold)
-									.padding()
+									Text("By Number")
+									.font(.custom("VoidRegular", size: 27))
+										.fontWeight(.bold)
 							}
 						}
 						
 						
 						ZStack {
 							RoundedRectangle(cornerRadius: 20)
-								.foregroundStyle(Color.gray)
+								.foregroundStyle(Color.newPurple)
 								.frame(width: .infinity, height: 150)
 							
 							VStack {
-								Image(systemName: "shuffle")
+								Image("PawnOutline")
 									.resizable()
-									.frame(width: 80, height: 60)
-								
-								Text("Pieces > Pos.")
-									.font(.title2)
+									.frame(width: 80, height: 80)
+									.scaleEffect(0.9, anchor: .center)
+								Text("Pieces ▶️ Pos.")
+									.font(.custom("VoidRegular", size: 27))
 									.fontWeight(.bold)
-									.padding()
+//									.padding()
 							}
 						}
 					}
 					.padding(.horizontal, 20)
 				}
-				
+				Spacer().frame(height: 30)
 				HStack{
 					Text("History (10 recent)")
 						.font(.headline)
@@ -100,7 +97,7 @@ struct GenerateView: View {
 					
 					NavigationLink{
 						PlayView() //suppose to navigate to all generation view
-					}label: {
+					} label: {
 						Text("All")
 							.foregroundColor(.white)
 							.frame(width: 50, height: 1)
