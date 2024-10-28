@@ -9,11 +9,15 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>VoidBold.ttf</string>
 		<string>ViodLight.ttf</string>
 		<string>VoidMedium.ttf</string>
+		<string>VoidRegular.ttf</string>
+		<string>VoidSemiBold.ttf</string>
 	</array>
 </dict>
 </plist>
