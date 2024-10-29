@@ -16,9 +16,11 @@ struct PositionDetailView: View {
 	@ObservedObject private var viewModel: PositionViewModel
 	@State private var selectedOption = "Text"
 	let options = ["Text","Visual"]
+    @ObservedObject private var gvm: GenerateViewModel
 	
-	init(viewModel: PositionViewModel) {
+    init(viewModel: PositionViewModel, gvm: GenerateViewModel) {
 		self.viewModel = viewModel
+        self.gvm = gvm
 	}
 	
 	var body: some View {
@@ -103,6 +105,7 @@ struct PositionDetailView: View {
 							// MARK: - Regenerate button
 						Button {
                             viewModel.generateNewPosition()
+                            gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
 						} label: {
 							ZStack {
 								RoundedRectangle(cornerRadius: 15)
@@ -114,19 +117,19 @@ struct PositionDetailView: View {
 								}
 							}
 						}
+                        
+                        
 						
 							// MARK: - Board View
-						Button {
-							
-						} label: {
-							ZStack {
-								RoundedRectangle(cornerRadius: 15)
-									.frame(width: 180, height: 50)
-									.foregroundStyle(Color.buttonBlue)
-								Text("Board View")
-							}
-						}
-					}
+                        List{
+                            
+                            ForEach(gvm.storedGeneration){index in
+                                Text("\(index.positionGenerated)")
+                            }
+                            .onDelete(perform: gvm.deleteData(indexSet:))
+                            
+                        }
+                    }
 					
 					Button {
 						
@@ -167,5 +170,5 @@ struct ShareSheet: UIViewControllerRepresentable {
 
 
 #Preview {
-    PositionDetailView(viewModel: PositionViewModel())
+    PositionDetailView(viewModel: PositionViewModel(), gvm: GenerateViewModel())
 }

@@ -18,13 +18,13 @@ class GenerateViewModel: ObservableObject{
     
     
     init(){
-        container = NSPersistentContainer(name: "Persistence")
+        container = NSPersistentContainer(name: "Fischr")
         container.loadPersistentStores{(description, error) in
             if let error = error {
                 print("ERROR: \(error)")
             }
         }
-        createSample()
+       
         fetchCoreData()
     }
     
@@ -91,11 +91,5 @@ class GenerateViewModel: ObservableObject{
         
     }
     
-    func createSample(){
-        
-        add(newGenerate: "Test Generation 1", isFavourite: false, date: Date())
-        add(newGenerate: "Test Generation 2", isFavourite: true, date: Date())
-        
-    }
     
 }

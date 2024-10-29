@@ -27,17 +27,11 @@ struct ContentView: View {
 				}
 				.tag(1)
 			
-			PlayView()
-				.tabItem {
-					Label("play", systemImage: "play")
-				}
-				.tag(2)
-			
 			SettingsView()
 				.tabItem {
 					Label("Settings", systemImage: "gearshape")
 				}
-				.tag(3)
+				.tag(2)
 		}
 	}
 }

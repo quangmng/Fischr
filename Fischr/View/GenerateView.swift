@@ -23,7 +23,7 @@ struct GenerateView: View {
 						.padding(.horizontal)
 					
 					NavigationLink{
-						PositionDetailView(viewModel: viewModel)
+                        PositionDetailView(viewModel: viewModel, gvm: GenerateViewModel())
 					} label:{
 						RandomButton()
 					}

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 class PositionViewModel: ObservableObject {
-    @Published var currentPosition: [String] = []
+    @Published var currentPosition: String  = ""
     @Published var positionID: Int = Positions.initialPosition
     @Published var container: [String] = []
     @Published var vPosition: [String] = [] // Change to [String]
@@ -20,6 +20,7 @@ class PositionViewModel: ObservableObject {
     
     func generateNewPosition() {
         let id = Int.random(in: 0..<Positions.allPositions.count)
+        self.currentPosition = String(id)
         self.positionID = id
         separateChar(posID: id)
     }
