@@ -21,7 +21,7 @@ struct ContentView: View {
 				}
 				.tag(0)
 			
-			GenerateView(isFavourite: $isFavourite)
+            GenerateView(isFavourite: isFavourite, gvm: GenerateViewModel())
 				.tabItem {
 					Label("Generate", systemImage: "wrench.adjustable.fill")
 				}

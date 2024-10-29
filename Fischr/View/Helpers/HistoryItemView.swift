@@ -9,21 +9,22 @@ import SwiftUI
 
 struct HistoryItemView: View {
     
-    @Binding var isFavourite: Bool
+    @State private var pvm = PositionViewModel()
+    @State var positionGenerated: String
+    @State var isFavourite: Bool = false
+    
     
     var body: some View {
         VStack(alignment: .leading){
             HStack{
-                Image("K")
+                Image(pvm.vPosition[0])
                     .resizable()
                     .frame(width: 20, height: 40)
                     .padding(.bottom, 8)
                     .traling()
-                
+    
                 Button{
-                    
                     isFavourite.toggle()
-                    
                 }label: {
                     Image(systemName: isFavourite ? "heart.fill" : "heart")
                         .foregroundStyle(isFavourite ? .red : .white)
@@ -36,7 +37,7 @@ struct HistoryItemView: View {
             }
             
             HStack(spacing: 2){
-                Text("437")
+                Text(positionGenerated)
 					.font(.custom("VoidSemiBold", size: 35))
                     .center()
             }
@@ -52,7 +53,7 @@ struct HistoryItemView: View {
 }
 
 #Preview {
-    HistoryItemView(isFavourite: .constant(false))
+    HistoryItemView(positionGenerated: "1" , isFavourite: true)
 }
 
 

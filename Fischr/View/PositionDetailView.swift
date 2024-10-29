@@ -63,41 +63,58 @@ struct PositionDetailView: View {
 				
 				VStack(alignment: .leading) {
 					Text("Select viewing mode")
-						.padding(.leading, 12)
+						
 					Picker("", selection: $selectedOption) {
 						ForEach(options, id: \.self) { option in
 							Text(option) // Display each option as Text
 						}
 					}
 					.pickerStyle(.segmented)
-					.padding()
+					
 				}
+                .padding()
 				
-				Text("1st Rank")
-					.leading()
-					.padding(8)
-				
-                // MARK: - the generated board is here.
-                HStack {
-                    if selectedOption == "Text" {
-                        ForEach(Array(viewModel.container.enumerated()), id: \.offset) { index, character in
-                            Text(character)
-                                .font(.custom("VoidRegular", size: 30))
-                                .frame(width: 44, height: 44)
-                                .background(Color.gray.opacity(0.3))
-                                .cornerRadius(6)
+                VStack{
+                    Text("1st Rank")
+                        .leading()
+                        .padding(.leading,16)
+                    
+                    // MARK: - the generated board is here.
+                    HStack() {
+                        if selectedOption == "Text" {
+                            ForEach(Array(viewModel.container.enumerated()), id: \.offset) { index, character in
+                                Text(character)
+                                    .font(.custom("VoidRegular", size: 30))
+                                    .frame(width: 44, height: 44)
+                                    .background(Color.gray.opacity(0.3))
+                                    .cornerRadius(6)
+                                
+                                    
+                            }
+                        } else {
+                            ForEach(Array(viewModel.vPosition.enumerated()), id: \.offset) { index, imageName in
+                                Image(imageName)
+                                    .resizable()
+                                
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 44, height: 44)
+                                    .padding(5)
+                                
+                                    .background(Color.gray.opacity(0.3))
+                                    .cornerRadius(6)
+                                    
+                            }
+                            
+                            
                         }
-                    } else {
-                        ForEach(Array(viewModel.vPosition.enumerated()), id: \.offset) { index, imageName in
-                            Image(imageName)
-                                .resizable()
-                                .frame(width: 44, height: 44)
-                                .background(Color.gray.opacity(0.3))
-                                .cornerRadius(6)
-                        }
+                            
                     }
+                    .scaleEffect(0.85)
+                    
                 }
-				
+                
+                
+            
 				Spacer().frame(height: 90)
 				
 				VStack {
@@ -124,7 +141,7 @@ struct PositionDetailView: View {
                         List{
                             
                             ForEach(gvm.storedGeneration){index in
-                                Text("\(index.positionGenerated)")
+                                Text("\(index.positionGenerated ?? "")")
                             }
                             .onDelete(perform: gvm.deleteData(indexSet:))
                             
@@ -143,6 +160,8 @@ struct PositionDetailView: View {
 					}
 				}
 			}
+            .padding()
+
 			.navigationTitle("Generated Position")
 			.toolbar(.hidden, for: .tabBar)
 			.sheet(isPresented: $isSharing) {
@@ -150,7 +169,9 @@ struct PositionDetailView: View {
 			}
             // temporary
 			.onAppear(){
-                viewModel.generateNewPosition()
+//                viewModel.generateNewPosition()
+                gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
+
 			}
 		}
 	}

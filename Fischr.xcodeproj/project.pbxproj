@@ -91,6 +91,7 @@
 				C57D61882CCBB66E00F49481 /* HistoryItemView.swift */,
 				FD0BEAF22CC8884F00477041 /* GridBView.swift */,
 				FD0BEAF02CC8884600477041 /* GridView.swift */,
+				C5F186F52CD102EA002CC4D4 /* CloseCross.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 		C58679A62CC3701800DAF988 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5F186F52CD102EA002CC4D4 /* CloseCross.swift */,
 				FD0BEAF62CC8D8D600477041 /* PlayView.swift */,
 				C57D61842CCA155600F49481 /* OnboardingView.swift */,
 				FD0BEAF42CC8D40100477041 /* HomeView.swift */,

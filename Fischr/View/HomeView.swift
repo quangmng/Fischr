@@ -37,7 +37,7 @@ struct HomeView: View {
 					Section("SAVED POSITIONS") {
 						LazyHStack (spacing: 20) {
 							ForEach(Gen.last10Gen, id: \.self) { gen in
-								HistoryItemView(isFavourite: $isFavourite)
+//                                HistoryItemView(positionGenerated: pos, isFavourite: isFavourite)
 							}
 						}
 					}

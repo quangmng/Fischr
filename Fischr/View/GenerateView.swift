@@ -9,8 +9,9 @@ import SwiftUI
 
 struct GenerateView: View {
 	
-	@Binding var isFavourite: Bool
+    @State var isFavourite: Bool
 	@State private var shouldNavigate = false
+    @State var gvm: GenerateViewModel
     @StateObject private var viewModel = PositionViewModel()
 	
 	var body: some View {
@@ -26,6 +27,7 @@ struct GenerateView: View {
                         PositionDetailView(viewModel: viewModel, gvm: GenerateViewModel())
 					} label:{
 						RandomButton()
+                        
 					}
 						
 				
@@ -50,7 +52,7 @@ struct GenerateView: View {
 						.padding(.horizontal)
 					
 					NavigationLink{
-						PlayView() //suppose to navigate to all generation view
+                        PositionDetailView(viewModel: PositionViewModel(), gvm:GenerateViewModel()) //supposed to navigate to all generation view
 					} label: {
 						Text("All")
 							.foregroundColor(.white)
@@ -65,10 +67,19 @@ struct GenerateView: View {
 				}
 				ScrollView(.horizontal) {
 					
-					HistoryItemView(isFavourite: $isFavourite)
-						.padding()
+//						.padding()
 					
 						// Use ForEach loop to display recent matches using history Item View
+                    
+                    HStack {
+                        ForEach(gvm.storedGeneration, id:\.self){ index in
+                            
+                            HistoryItemView(positionGenerated: index.positionGenerated ?? "", isFavourite: index.isFavourite)
+                            
+                        }
+                    }
+                    .padding()
+                    
 				}
 			}
 			.navigationTitle("Generate")
@@ -104,7 +115,7 @@ struct GenerateView: View {
 }
 
 #Preview {
-	GenerateView(isFavourite: .constant(false))
+    GenerateView(isFavourite: true, gvm: GenerateViewModel())
 }
 
 
