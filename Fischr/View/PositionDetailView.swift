@@ -13,11 +13,15 @@ struct PositionDetailView: View {
 	
 	@State private var isFavourite: Bool = false
 	@State private var isSharing: Bool = false
-	@State var position: [String]
+	@ObservedObject private var viewModel: PositionViewModel
 	@State private var selectedOption = "Text"
 	let options = ["Text","Visual"]
 	private var positionID: Int {
-		calculateChess960ID(from: position)
+		viewModel.calculateChess960ID(from: viewModel.position)
+	}
+	
+	init(viewModel: PositionViewModel) {
+		self.viewModel = viewModel
 	}
 	
 	var body: some View {
@@ -52,20 +56,20 @@ struct PositionDetailView: View {
 					}
 					
 					/*Button {
-						isSharing.toggle()
-					} label: {
-						ZStack {
-							RoundedRectangle(cornerRadius: 15)
-								.frame(width: 50, height: 40)
-								.foregroundStyle(Color.buttonBlue)
-							Image(systemName: "square.and.arrow.up")
-						}
-					}*/
+					 isSharing.toggle()
+					 } label: {
+					 ZStack {
+					 RoundedRectangle(cornerRadius: 15)
+					 .frame(width: 50, height: 40)
+					 .foregroundStyle(Color.buttonBlue)
+					 Image(systemName: "square.and.arrow.up")
+					 }
+					 }*/
 					
 				}
 				.padding(.horizontal, 8)
 				
-				Text("\(positionID)")
+				Text("\(viewModel.calculateChess960ID(from: viewModel.position))")
 					.leading()
 					.font(.custom("VoidSemibold", size: 45))
 					.padding(8)
@@ -88,8 +92,8 @@ struct PositionDetailView: View {
 				
 					// MARK: - the generated board is here.
 				HStack {
-					ForEach(0..<position.count, id: \.self) { index in
-						Text(position[index])
+					ForEach(viewModel.position, id: \.self) { index in
+						Text(index)
 							.font(.custom("VoidRegular", size: 30))
 							.frame(width: 44, height: 44)
 							.background(Color.gray.opacity(0.3))
@@ -103,7 +107,7 @@ struct PositionDetailView: View {
 					HStack {
 							// MARK: - Regenerate button
 						Button {
-							regeneratePosition()
+							viewModel.regeneratePosition()
 						} label: {
 							ZStack {
 								RoundedRectangle(cornerRadius: 15)
@@ -138,88 +142,33 @@ struct PositionDetailView: View {
 								.frame(width:370, height: 50)
 							Text("Play this position")
 						}
-						
 					}
-					
 				}
 			}
 			.navigationTitle("Generated Position")
+			.toolbar(.hidden, for: .tabBar)
 			.sheet(isPresented: $isSharing) {
 				ShareSheet(activityItems: ["Check out this Chess960 position: #\(positionID)"])
 			}
 		}
 	}
 	
-	private func regeneratePosition() {
-			position = generateChess960Position() // Assign a new random position
-		}
 	
-	private func generateChess960Position() -> [String] {
-			var squares = Array(repeating: "", count: 8)
-
-			// Place two bishops on opposite-colored squares
-			let bishop1 = Int.random(in: 0..<4) * 2
-			var bishop2 = Int.random(in: 0..<4) * 2 + 1
-			while bishop2 == bishop1 + 1 { // Ensure different columns
-				bishop2 = Int.random(in: 0..<4) * 2 + 1
-			}
-			squares[bishop1] = "B"
-			squares[bishop2] = "B"
-
-			// Place the queen
-			var available = squares.indices.filter { squares[$0].isEmpty }
-			squares[available.randomElement()!] = "Q"
-
-			// Place two knights
-			available = squares.indices.filter { squares[$0].isEmpty }
-			squares[available.remove(at: Int.random(in: 0..<available.count))] = "N"
-			squares[available.remove(at: Int.random(in: 0..<available.count))] = "N"
-
-			// Place the king between two rooks (R_K_R pattern)
-			available = squares.indices.filter { squares[$0].isEmpty }
-			available.sort()
-			squares[available[0]] = "R"
-			squares[available[1]] = "K"
-			squares[available[2]] = "R"
-
-			return squares
-		}
-	
-		// MARK: - Chess960 ID Calculation
-	private func calculateChess960ID(from position: [String]) -> Int {
-			// A mock calculation for now; real logic would involve encoding bishops, rooks, king, etc.
-		var hash = 0
-		
-			// Example encoding: Convert pieces to numeric values and sum them
-		for (index, piece) in position.enumerated() {
-			hash += pieceValue(piece) * (index + 1)
-		}
-		
-			// Ensure the result is within 1 to 960 range
-		return (hash % 960) + 1
-	}
-	private func pieceValue(_ piece: String) -> Int {
-		switch piece {
-			case "R": return 5  // Rook
-			case "N": return 3  // Knight
-			case "B": return 3  // Bishop
-			case "Q": return 9  // Queen
-			case "K": return 10 // King
-			default: return 1   // Pawn or empty (default)
-		}
-	}
 }
 
 struct ShareSheet: UIViewControllerRepresentable {
 	let activityItems: [Any]
-
+	
 	func makeUIViewController(context: Context) -> UIActivityViewController {
 		UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
 	}
-
+	
 	func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
 }
 
+
 #Preview {
-	PositionDetailView(position: ["R", "N", "B", "Q", "K", "B", "N", "R"])
+	// Provide an example position for the preview
+	PositionDetailView(viewModel: PositionViewModel(position: ["R", "N", "B", "Q", "K", "B", "N", "R"]))
 }
+

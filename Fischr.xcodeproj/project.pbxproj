@@ -31,6 +31,7 @@
 		FD0BEB7C2CCA325700477041 /* VoidSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB762CCA325700477041 /* VoidSemiBold.ttf */; };
 		FD0BEBE02CCF4BEB00477041 /* PositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */; };
 		FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBE12CD0496000477041 /* BoardView.swift */; };
+		FD0BEBE42CD090A800477041 /* PositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBE32CD090A000477041 /* PositionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		FD0BEB762CCA325700477041 /* VoidSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidSemiBold.ttf; sourceTree = "<group>"; };
 		FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionDetailView.swift; sourceTree = "<group>"; };
 		FD0BEBE12CD0496000477041 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		FD0BEBE32CD090A000477041 /* PositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 		C58679A72CC3701800DAF988 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FD0BEBE32CD090A000477041 /* PositionViewModel.swift */,
 				C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */,
 				C57D61122CC880DD00F49481 /* FischrViewModel.swift */,
 			);
@@ -260,6 +263,7 @@
 				C55573492CCE7A3B00F0CE3B /* GenerateViewModel.swift in Sources */,
 				C58679B12CC3701800DAF988 /* ContentView.swift in Sources */,
 				C57D618C2CCBB6B600F49481 /* UIExtension.swift in Sources */,
+				FD0BEBE42CD090A800477041 /* PositionViewModel.swift in Sources */,
 				FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */,
 				C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */,
 				C57D61852CCA155600F49481 /* OnboardingView.swift in Sources */,

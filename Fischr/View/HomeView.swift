@@ -12,15 +12,21 @@ struct HomeView: View {
 	@State var Gen = GenerateViewModel()
 	@State var getStarted: Bool = false
 	@Binding var isFavourite: Bool
+	@Binding var selectedTab: Int
 	
 	var body: some View {
 		NavigationStack {
 			VStack {
-				NavigationLink {
-					GenerateView(isFavourite: $isFavourite)
-				} label: {
-					getStartedView()
-				}
+//				NavigationLink {
+//					GenerateView(isFavourite: $isFavourite)
+//				} label: {
+//					getStartedView()
+//				}
+				
+				getStartedView()
+					.onTapGesture {
+						selectedTab = 1 // Switch to GenerateView tab
+					}
 				
 				VStack {
 					Text("At A Glance")
@@ -45,7 +51,7 @@ struct HomeView: View {
 }
 
 #Preview {
-	HomeView(isFavourite: .constant(true))
+	HomeView(isFavourite: .constant(true), selectedTab: .constant(0))
 }
 
 struct getStartedView: View {

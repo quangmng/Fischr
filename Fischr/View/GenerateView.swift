@@ -10,8 +10,7 @@ import SwiftUI
 struct GenerateView: View {
 	
 	@Binding var isFavourite: Bool
-	@State private var currentPosition: [String] = Array(repeating: "", count: 8) // Store the current 960 position
-//	@State private var navigateToDetail = false
+	@StateObject private var viewModel = PositionViewModel(position: Array(repeating: "", count: 8))
 	
 	var body: some View {
 		NavigationStack {
@@ -23,7 +22,7 @@ struct GenerateView: View {
 						.padding(.horizontal)
 					
 					NavigationLink {
-						PositionDetailView(position: currentPosition)
+						PositionDetailView(viewModel: viewModel)
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 20)
@@ -90,14 +89,11 @@ struct GenerateView: View {
 				}
 			}
 			.navigationTitle("Generate")
-			
-			
-			
 		}
 	}
-	private func generatePosition() {
-		currentPosition = generateChess960Position()
-	}
+//	private func generatePosition() {
+//		viewModel.currentPosition = generateChess960Position()
+//	}
 	
 	private func optionCard(systemName: String? = nil, imageName: String? = nil, text: String, color: Color) -> some View {
 		ZStack {

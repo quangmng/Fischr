@@ -12,13 +12,10 @@ struct SettingsView: View {
         NavigationView{
             ScrollView{
                 VStack{
-                    Text("Settings")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding()
-                        .leading()
+                    
                 }
             }
+			.navigationTitle("Settings")
         }
     }
 }
