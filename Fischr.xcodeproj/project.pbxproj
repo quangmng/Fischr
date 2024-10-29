@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 63;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -36,7 +36,34 @@
 		FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBE12CD0496000477041 /* BoardView.swift */; };
 		FD29965B2CD0C7630012EC55 /* PositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */; };
 		FDEABCFA2CD0CE1F00DBF978 /* PositionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */; };
+		FDEABD042CD1951500DBF978 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEABD032CD1951500DBF978 /* WidgetKit.framework */; };
+		FDEABD062CD1951500DBF978 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEABD052CD1951500DBF978 /* SwiftUI.framework */; };
+		FDEABD172CD1951600DBF978 /* FischrWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FDEABD012CD1951500DBF978 /* FischrWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDEABD152CD1951600DBF978 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C58679822CC3691F00DAF988 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FDEABD002CD1951500DBF978;
+			remoteInfo = FischrWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FDEABD182CD1951600DBF978 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FDEABD172CD1951600DBF978 /* FischrWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewModel.swift; sourceTree = "<group>"; };
@@ -71,13 +98,41 @@
 		FD0BEBE12CD0496000477041 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionViewModel.swift; sourceTree = "<group>"; };
 		FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsModel.swift; sourceTree = "<group>"; };
+		FDEABD012CD1951500DBF978 /* FischrWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FischrWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDEABD032CD1951500DBF978 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FDEABD052CD1951500DBF978 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FDEABD1D2CD19D9500DBF978 /* Fischr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fischr.entitlements; sourceTree = "<group>"; };
+		FDEABD1E2CD19DF400DBF978 /* FischrWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FischrWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FDEABD1B2CD1951600DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = FDEABD002CD1951500DBF978 /* FischrWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FDEABD072CD1951500DBF978 /* FischrWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FDEABD1B2CD1951600DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FischrWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C58679872CC3691F00DAF988 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDEABCFE2CD1951500DBF978 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDEABD062CD1951500DBF978 /* SwiftUI.framework in Frameworks */,
+				FDEABD042CD1951500DBF978 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +163,11 @@
 		C58679812CC3691F00DAF988 = {
 			isa = PBXGroup;
 			children = (
+				FDEABD1E2CD19DF400DBF978 /* FischrWidgetExtension.entitlements */,
 				C58679B52CC3702A00DAF988 /* README.md */,
 				C58679AD2CC3701800DAF988 /* Fischr */,
+				FDEABD072CD1951500DBF978 /* FischrWidget */,
+				FDEABD022CD1951500DBF978 /* Frameworks */,
 				C586798B2CC3691F00DAF988 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				C586798A2CC3691F00DAF988 /* Fischr.app */,
+				FDEABD012CD1951500DBF978 /* FischrWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +229,7 @@
 		C58679AD2CC3701800DAF988 /* Fischr */ = {
 			isa = PBXGroup;
 			children = (
+				FDEABD1D2CD19D9500DBF978 /* Fischr.entitlements */,
 				FD0BEB712CCA320900477041 /* Info.plist */,
 				C58679A32CC3701800DAF988 /* Model */,
 				C58679A52CC3701800DAF988 /* Preview Content */,
@@ -194,6 +254,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		FDEABD022CD1951500DBF978 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDEABD032CD1951500DBF978 /* WidgetKit.framework */,
+				FDEABD052CD1951500DBF978 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,10 +273,12 @@
 				C58679862CC3691F00DAF988 /* Sources */,
 				C58679872CC3691F00DAF988 /* Frameworks */,
 				C58679882CC3691F00DAF988 /* Resources */,
+				FDEABD182CD1951600DBF978 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FDEABD162CD1951600DBF978 /* PBXTargetDependency */,
 			);
 			name = Fischr;
 			packageProductDependencies = (
@@ -215,6 +286,28 @@
 			productName = Fischr;
 			productReference = C586798A2CC3691F00DAF988 /* Fischr.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FDEABD002CD1951500DBF978 /* FischrWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDEABD1C2CD1951600DBF978 /* Build configuration list for PBXNativeTarget "FischrWidgetExtension" */;
+			buildPhases = (
+				FDEABCFD2CD1951500DBF978 /* Sources */,
+				FDEABCFE2CD1951500DBF978 /* Frameworks */,
+				FDEABCFF2CD1951500DBF978 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FDEABD072CD1951500DBF978 /* FischrWidget */,
+			);
+			name = FischrWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = FischrWidgetExtension;
+			productReference = FDEABD012CD1951500DBF978 /* FischrWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -227,6 +320,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					C58679892CC3691F00DAF988 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					FDEABD002CD1951500DBF978 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -246,6 +342,7 @@
 			projectRoot = "";
 			targets = (
 				C58679892CC3691F00DAF988 /* Fischr */,
+				FDEABD002CD1951500DBF978 /* FischrWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -262,6 +359,13 @@
 				FD0BEB7B2CCA325700477041 /* VoidMedium.ttf in Resources */,
 				FD0BEB7C2CCA325700477041 /* VoidSemiBold.ttf in Resources */,
 				C58679B02CC3701800DAF988 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDEABCFF2CD1951500DBF978 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +401,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FDEABCFD2CD1951500DBF978 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDEABD162CD1951600DBF978 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FDEABD002CD1951500DBF978 /* FischrWidgetExtension */;
+			targetProxy = FDEABD152CD1951600DBF978 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C586799B2CC3692100DAF988 /* Debug */ = {
@@ -424,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fischr/Fischr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fischr/Preview Content\"";
@@ -456,6 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Fischr/Fischr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fischr/Preview Content\"";
@@ -483,6 +604,62 @@
 			};
 			name = Release;
 		};
+		FDEABD192CD1951600DBF978 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FischrWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q5KWHQF24J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FischrWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FischrWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = au.quang.dev.Fischr.FischrWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FDEABD1A2CD1951600DBF978 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = FischrWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q5KWHQF24J;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FischrWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FischrWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = au.quang.dev.Fischr.FischrWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -500,6 +677,15 @@
 			buildConfigurations = (
 				C586799E2CC3692100DAF988 /* Debug */,
 				C586799F2CC3692100DAF988 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDEABD1C2CD1951600DBF978 /* Build configuration list for PBXNativeTarget "FischrWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDEABD192CD1951600DBF978 /* Debug */,
+				FDEABD1A2CD1951600DBF978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
