@@ -13,9 +13,9 @@ struct PositionDetailView: View {
 	
 	@State private var isFavourite: Bool = false
 	@State private var isSharing: Bool = false
+	@State var position: [String]
 	@State private var selectedOption = "Text"
 	let options = ["Text","Visual"]
-	let position: [String]
 	private var positionID: Int {
 		calculateChess960ID(from: position)
 	}
@@ -38,7 +38,7 @@ struct PositionDetailView: View {
 							RoundedRectangle(cornerRadius: 15)
 								.frame(width: 50, height: 40)
 								.foregroundStyle(Color.buttonBlue)
-							isFavourite ? Image(systemName: "heart") : Image(systemName: "heart.fill")
+							Image(systemName: isFavourite ? "heart.fill" : "heart")
 						}
 					}
 					
@@ -94,7 +94,6 @@ struct PositionDetailView: View {
 							.frame(width: 44, height: 44)
 							.background(Color.gray.opacity(0.3))
 							.cornerRadius(6)
-							.font(.largeTitle)
 					}
 				}
 				
@@ -104,7 +103,7 @@ struct PositionDetailView: View {
 					HStack {
 							// MARK: - Regenerate button
 						Button {
-								// Regenerate action
+							regeneratePosition()
 						} label: {
 							ZStack {
 								RoundedRectangle(cornerRadius: 15)
@@ -150,6 +149,42 @@ struct PositionDetailView: View {
 			}
 		}
 	}
+	
+	private func regeneratePosition() {
+			position = generateChess960Position() // Assign a new random position
+		}
+	
+	private func generateChess960Position() -> [String] {
+			var squares = Array(repeating: "", count: 8)
+
+			// Place two bishops on opposite-colored squares
+			let bishop1 = Int.random(in: 0..<4) * 2
+			var bishop2 = Int.random(in: 0..<4) * 2 + 1
+			while bishop2 == bishop1 + 1 { // Ensure different columns
+				bishop2 = Int.random(in: 0..<4) * 2 + 1
+			}
+			squares[bishop1] = "B"
+			squares[bishop2] = "B"
+
+			// Place the queen
+			var available = squares.indices.filter { squares[$0].isEmpty }
+			squares[available.randomElement()!] = "Q"
+
+			// Place two knights
+			available = squares.indices.filter { squares[$0].isEmpty }
+			squares[available.remove(at: Int.random(in: 0..<available.count))] = "N"
+			squares[available.remove(at: Int.random(in: 0..<available.count))] = "N"
+
+			// Place the king between two rooks (R_K_R pattern)
+			available = squares.indices.filter { squares[$0].isEmpty }
+			available.sort()
+			squares[available[0]] = "R"
+			squares[available[1]] = "K"
+			squares[available[2]] = "R"
+
+			return squares
+		}
+	
 		// MARK: - Chess960 ID Calculation
 	private func calculateChess960ID(from position: [String]) -> Int {
 			// A mock calculation for now; real logic would involve encoding bishops, rooks, king, etc.
@@ -186,11 +221,5 @@ struct ShareSheet: UIViewControllerRepresentable {
 }
 
 #Preview {
-	PositionDetailView(position: ["R", "N", "B", "Q", "K", "B", "N", "R"]) // Example of a Chess960 position
-}
-
-struct SheetView: View {
-	var body: some View {
-		Text("Hello")
-	}
+	PositionDetailView(position: ["R", "N", "B", "Q", "K", "B", "N", "R"])
 }

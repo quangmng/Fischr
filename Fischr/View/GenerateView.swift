@@ -11,10 +11,10 @@ struct GenerateView: View {
 	
 	@Binding var isFavourite: Bool
 	@State private var currentPosition: [String] = Array(repeating: "", count: 8) // Store the current 960 position
-	@State private var navigateToDetail = false
+//	@State private var navigateToDetail = false
 	
 	var body: some View {
-		NavigationView {
+		NavigationStack {
 			ScrollView {
 				VStack(alignment: .leading) {
 					Text("Modes")
@@ -22,73 +22,33 @@ struct GenerateView: View {
 						.leading()
 						.padding(.horizontal)
 					
-					ZStack {
-						RoundedRectangle(cornerRadius: 20)
-							.foregroundStyle(Color.fischrTab)
-							.frame(height: 180)
-							.padding(.horizontal, 20)
-						
-						Image(systemName: "shuffle")
-							.resizable()
-							.frame(width: 60, height: 50)
-							.onTapGesture {
-								generatePosition() // Generate position on tap
-								navigateToDetail = true // Trigger navigation
+					NavigationLink {
+						PositionDetailView(position: currentPosition)
+					} label: {
+						ZStack {
+							RoundedRectangle(cornerRadius: 20)
+								.foregroundStyle(Color.fischrTab)
+								.frame(height: 180)
+								.padding(.horizontal, 20)
+							
+							Image(systemName: "shuffle")
+								.resizable()
+								.frame(width: 60, height: 50)
+								
+							
+							VStack {
+								Text("Random")
+									.font(.custom("VoidRegular", size: 35))
+									.bottomLeading()
+									.padding(.horizontal, 40)
 							}
-						
-						VStack {
-							Text("Random")
-								.font(.custom("VoidRegular", size: 35))
-								.bottomLeading()
-								.padding(.horizontal, 40)
+							.padding(.bottom, 15)
 						}
-						.padding(.bottom, 15)
-						
-						NavigationLink(
-							destination: PositionDetailView(position: currentPosition),
-							isActive: $navigateToDetail
-						) {
-							EmptyView()
-						}
+						.foregroundStyle(Color.primary)
 					}
 					
-					Spacer().frame(height: 30)
 					
-					/*HStack {
-					 ZStack {
-					 RoundedRectangle(cornerRadius: 20)
-					 .foregroundStyle(Color.blackPink)
-					 .frame(width: .infinity, height: 150)
-					 
-					 VStack {
-					 Image(systemName: "numbers.rectangle.fill")
-					 .resizable()
-					 .frame(width: 80, height: 60)
-					 
-					 Text("By Number")
-					 .font(.custom("VoidRegular", size: 27))
-					 .fontWeight(.bold)
-					 }
-					 }
-					 
-					 
-					 ZStack {
-					 RoundedRectangle(cornerRadius: 20)
-					 .foregroundStyle(Color.newPurple)
-					 .frame(width: .infinity, height: 150)
-					 
-					 VStack {
-					 Image("PawnOutline")
-					 .resizable()
-					 .frame(width: 80, height: 80)
-					 .scaleEffect(0.9, anchor: .center)
-					 Text("Pieces ▶️ Pos.")
-					 .font(.custom("VoidRegular", size: 27))
-					 .fontWeight(.bold)
-					 }
-					 }
-					 }
-					 .padding(.horizontal, 20)*/
+					Spacer().frame(height: 30)
 					
 					HStack {
 						optionCard(systemName: "numbers.rectangle.fill", text: "By Number", color: .blackPink)

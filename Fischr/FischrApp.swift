@@ -13,8 +13,10 @@ struct FischrApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			
+            ContentView(isFavourite: .constant(false))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+		
         }
     }
 }
