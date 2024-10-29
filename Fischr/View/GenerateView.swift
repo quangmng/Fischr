@@ -11,7 +11,7 @@ struct GenerateView: View {
 	
 	@Binding var isFavourite: Bool
 	@State private var shouldNavigate = false
-	@StateObject private var viewModel = PositionViewModel(position: Array(repeating: "", count: 8), vPosition: [])
+	@StateObject private var viewModel = PositionViewModel()
 	
 	var body: some View {
 		NavigationStack {

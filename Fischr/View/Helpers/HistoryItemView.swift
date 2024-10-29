@@ -14,7 +14,7 @@ struct HistoryItemView: View {
     var body: some View {
         VStack(alignment: .leading){
             HStack{
-                Image("Bishop")
+                Image("K")
                     .resizable()
                     .frame(width: 20, height: 40)
                     .padding(.bottom, 8)
@@ -36,15 +36,11 @@ struct HistoryItemView: View {
             }
             
             HStack(spacing: 2){
-                Text("Generation 437")
-                    .font(.headline)
+                Text("437")
+					.font(.custom("VoidSemiBold", size: 35))
                     .center()
             }
             
-            Text("Date of generation")
-                .font(.caption)
-                .center()
-                
             
         }
         .frame(width: 135, height: 135)
