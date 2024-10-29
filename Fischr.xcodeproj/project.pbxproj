@@ -30,6 +30,7 @@
 		FD0BEB7B2CCA325700477041 /* VoidMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB742CCA325700477041 /* VoidMedium.ttf */; };
 		FD0BEB7C2CCA325700477041 /* VoidSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB762CCA325700477041 /* VoidSemiBold.ttf */; };
 		FD0BEBE02CCF4BEB00477041 /* PositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */; };
+		FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBE12CD0496000477041 /* BoardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		FD0BEB752CCA325700477041 /* VoidRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidRegular.ttf; sourceTree = "<group>"; };
 		FD0BEB762CCA325700477041 /* VoidSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidSemiBold.ttf; sourceTree = "<group>"; };
 		FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionDetailView.swift; sourceTree = "<group>"; };
+		FD0BEBE12CD0496000477041 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,14 +130,15 @@
 		C58679A62CC3701800DAF988 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD0BEAF62CC8D8D600477041 /* PlayView.swift */,
+				C57D61842CCA155600F49481 /* OnboardingView.swift */,
+				FD0BEAF42CC8D40100477041 /* HomeView.swift */,
+				FD0BEBE12CD0496000477041 /* BoardView.swift */,
+				FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */,
 				C57D618D2CCBB70A00F49481 /* SettingsView.swift */,
 				C57D61862CCBB65900F49481 /* GenerateView.swift */,
 				C57D61832CCA152000F49481 /* Helpers */,
 				C58679A92CC3701800DAF988 /* ContentView.swift */,
-				FD0BEAF42CC8D40100477041 /* HomeView.swift */,
-				FD0BEAF62CC8D8D600477041 /* PlayView.swift */,
-				C57D61842CCA155600F49481 /* OnboardingView.swift */,
-				FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				C58679B42CC3701800DAF988 /* Persistence.swift in Sources */,
 				C57D61872CCBB65900F49481 /* GenerateView.swift in Sources */,
 				FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */,
+				FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */,
 				FD0BEAF72CC8D8D600477041 /* PlayView.swift in Sources */,
 				FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */,
 				C57D61132CC880ED00F49481 /* FischrViewModel.swift in Sources */,
@@ -403,7 +407,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fischr/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YQ66K5T88;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fischr/Info.plist;
@@ -436,7 +440,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fischr/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YQ66K5T88;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fischr/Info.plist;

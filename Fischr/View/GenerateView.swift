@@ -10,27 +10,19 @@ import SwiftUI
 struct GenerateView: View {
 	
 	@Binding var isFavourite: Bool
+	@State private var currentPosition: [String] = Array(repeating: "", count: 8) // Store the current 960 position
+	@State private var navigateToDetail = false
 	
 	var body: some View {
-		NavigationView{
-			ScrollView{
-				
-				
+		NavigationView {
+			ScrollView {
 				VStack(alignment: .leading) {
-					
-//					Text("Generate")
-//						.font(.title)
-//						.fontWeight(.bold)
-//						.padding()
-//						.leading()
-					
 					Text("Modes")
 						.font(.headline)
 						.leading()
 						.padding(.horizontal)
 					
-					ZStack() {
-						
+					ZStack {
 						RoundedRectangle(cornerRadius: 20)
 							.foregroundStyle(Color.fischrTab)
 							.frame(height: 180)
@@ -38,9 +30,11 @@ struct GenerateView: View {
 						
 						Image(systemName: "shuffle")
 							.resizable()
-							.frame(width: 120/2, height: 100/2)
-//							.font(.system(size: 30))
-							.foregroundColor(.black)
+							.frame(width: 60, height: 50)
+							.onTapGesture {
+								generatePosition() // Generate position on tap
+								navigateToDetail = true // Trigger navigation
+							}
 						
 						VStack {
 							Text("Random")
@@ -49,47 +43,65 @@ struct GenerateView: View {
 								.padding(.horizontal, 40)
 						}
 						.padding(.bottom, 15)
+						
+						NavigationLink(
+							destination: PositionDetailView(position: currentPosition),
+							isActive: $navigateToDetail
+						) {
+							EmptyView()
+						}
 					}
 					
+					Spacer().frame(height: 30)
+					
+					/*HStack {
+					 ZStack {
+					 RoundedRectangle(cornerRadius: 20)
+					 .foregroundStyle(Color.blackPink)
+					 .frame(width: .infinity, height: 150)
+					 
+					 VStack {
+					 Image(systemName: "numbers.rectangle.fill")
+					 .resizable()
+					 .frame(width: 80, height: 60)
+					 
+					 Text("By Number")
+					 .font(.custom("VoidRegular", size: 27))
+					 .fontWeight(.bold)
+					 }
+					 }
+					 
+					 
+					 ZStack {
+					 RoundedRectangle(cornerRadius: 20)
+					 .foregroundStyle(Color.newPurple)
+					 .frame(width: .infinity, height: 150)
+					 
+					 VStack {
+					 Image("PawnOutline")
+					 .resizable()
+					 .frame(width: 80, height: 80)
+					 .scaleEffect(0.9, anchor: .center)
+					 Text("Pieces ▶️ Pos.")
+					 .font(.custom("VoidRegular", size: 27))
+					 .fontWeight(.bold)
+					 }
+					 }
+					 }
+					 .padding(.horizontal, 20)*/
+					
 					HStack {
-						ZStack {
-							RoundedRectangle(cornerRadius: 20)
-								.foregroundStyle(Color.blackPink)
-								.frame(width: .infinity, height: 150)
-							
-							VStack {
-								Image(systemName: "numbers.rectangle.fill")
-									.resizable()
-									.frame(width: 80, height: 60)
-								
-									Text("By Number")
-									.font(.custom("VoidRegular", size: 27))
-										.fontWeight(.bold)
-							}
-						}
-						
-						
-						ZStack {
-							RoundedRectangle(cornerRadius: 20)
-								.foregroundStyle(Color.newPurple)
-								.frame(width: .infinity, height: 150)
-							
-							VStack {
-								Image("PawnOutline")
-									.resizable()
-									.frame(width: 80, height: 80)
-									.scaleEffect(0.9, anchor: .center)
-								Text("Pieces ▶️ Pos.")
-									.font(.custom("VoidRegular", size: 27))
-									.fontWeight(.bold)
-//									.padding()
-							}
-						}
+						optionCard(systemName: "numbers.rectangle.fill", text: "By Number", color: .blackPink)
+						optionCard(imageName: "PawnOutline", text: "Pieces ▶️ Pos.", color: .newPurple)
 					}
 					.padding(.horizontal, 20)
+					
+					
 				}
+				
 				Spacer().frame(height: 30)
-				HStack{
+				
+				HStack {
 					Text("History (10 recent)")
 						.font(.headline)
 						.leading()
@@ -109,22 +121,48 @@ struct GenerateView: View {
 					.frame(height: 5)
 					
 				}
-				ScrollView(.horizontal){
+				ScrollView(.horizontal) {
 					
 					HistoryItemView(isFavourite: $isFavourite)
 						.padding()
 					
 						// Use ForEach loop to display recent matches using history Item View
-					
-						//                        ForEach{
-						//
-						//                        }
-					
-					
 				}
-				
 			}
 			.navigationTitle("Generate")
+			
+			
+			
+		}
+	}
+	private func generatePosition() {
+		currentPosition = generateChess960Position()
+	}
+	
+	private func optionCard(systemName: String? = nil, imageName: String? = nil, text: String, color: Color) -> some View {
+		ZStack {
+			RoundedRectangle(cornerRadius: 20)
+				.foregroundStyle(color)
+				.frame(width: .infinity, height: 150)
+			
+			VStack {
+				if let systemName = systemName {
+					Image(systemName: systemName)
+						.resizable()
+						.frame(width: 80, height: 60)
+				}
+				
+				if let imageName = imageName {
+					Image(imageName)
+						.resizable()
+						.frame(width: 80, height: 80)
+						.scaleEffect(0.9, anchor: .center)
+				}
+				
+				Text(text)
+					.font(.custom("VoidRegular", size: 27))
+					.fontWeight(.bold)
+			}
 		}
 	}
 }

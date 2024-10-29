@@ -11,6 +11,7 @@ struct PositionDetailView: View {
 	
 	@State private var selectedOption = "Visual"
 	let options = ["Visual", "Text"]
+	let position: [String]
 	
 	var body: some View {
 		NavigationView {
@@ -19,7 +20,7 @@ struct PositionDetailView: View {
 					Text("Position #")
 					Spacer()
 					Button {
-						
+							// Favorite action
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
@@ -30,7 +31,7 @@ struct PositionDetailView: View {
 					}
 					
 					Button {
-						
+							// Share action
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
@@ -54,7 +55,7 @@ struct PositionDetailView: View {
 						Text(option) // Display each option as Text
 					}
 				}
-				.pickerStyle(.palette)
+				.pickerStyle(.segmented)
 				.padding()
 				
 				Text("1st Rank")
@@ -62,16 +63,28 @@ struct PositionDetailView: View {
 					.padding(8)
 				
 				// MARK: - the generated board is here.
+				HStack {
+					ForEach(0..<position.count, id: \.self) { index in
+						Text(position[index])
+							.frame(width: 44, height: 44)
+							.background(Color.gray.opacity(0.3))
+							.cornerRadius(6)
+							.font(.largeTitle)
+							
+					}
+				}
+				
+				
+				Spacer()
 				
 				HStack {
-					
 						// MARK: - Regenerate button
 					Button {
-						
+							// Regenerate action
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
-								.frame(width: 200, height: 50)
+								.frame(width: 180, height: 50)
 								.foregroundStyle(Color.buttonBlue)
 							Text("Regenerate")
 						}
@@ -83,15 +96,12 @@ struct PositionDetailView: View {
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
-								.frame(width: 200, height: 50)
+								.frame(width: 180, height: 50)
 								.foregroundStyle(Color.buttonBlue)
 							Text("Board View")
 						}
 					}
-					
 				}
-				
-				
 			}
 			.navigationTitle("Generated Position")
 		}
@@ -99,5 +109,5 @@ struct PositionDetailView: View {
 }
 
 #Preview {
-	PositionDetailView()
+	PositionDetailView(position: ["R", "N", "B", "Q", "K", "B", "N", "R"]) // Example of a Chess960 position
 }
