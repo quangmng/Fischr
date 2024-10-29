@@ -40,7 +40,7 @@ struct OnboardingView: View {
                 VStack {
                     Spacer()
                     Button(action: {
-                        
+						
                     }) {
                         Text("Get Started")
                             .foregroundColor(.white)

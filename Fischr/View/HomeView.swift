@@ -39,8 +39,6 @@ struct HomeView: View {
 				}
 				.padding(20)
 			}
-			
-			
 			.navigationTitle("Fischr")
 		}
 	}
