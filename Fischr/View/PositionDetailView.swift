@@ -16,6 +16,7 @@ struct PositionDetailView: View {
 	@ObservedObject private var viewModel: PositionViewModel
 	@State private var selectedOption = "Text"
 	let options = ["Text","Visual"]
+	
 	private var positionID: Int {
 		viewModel.calculateChess960ID(from: viewModel.position)
 	}
@@ -25,7 +26,7 @@ struct PositionDetailView: View {
 	}
 	
 	var body: some View {
-		NavigationView {
+		NavigationStack {
 			VStack {
 				HStack {
 					
@@ -54,18 +55,6 @@ struct PositionDetailView: View {
 							Image(systemName: "square.and.arrow.up")
 						}
 					}
-					
-					/*Button {
-					 isSharing.toggle()
-					 } label: {
-					 ZStack {
-					 RoundedRectangle(cornerRadius: 15)
-					 .frame(width: 50, height: 40)
-					 .foregroundStyle(Color.buttonBlue)
-					 Image(systemName: "square.and.arrow.up")
-					 }
-					 }*/
-					
 				}
 				.padding(.horizontal, 8)
 				
@@ -74,17 +63,17 @@ struct PositionDetailView: View {
 					.font(.custom("VoidSemibold", size: 45))
 					.padding(8)
 				
-				Text("Viewing mode")
-					.leading()
-					.padding(.horizontal, 8)
-				
-				Picker("Select a Mode", selection: $selectedOption) {
-					ForEach(options, id: \.self) { option in
-						Text(option) // Display each option as Text
+				VStack(alignment: .leading) {
+					Text("Select viewing mode")
+						.padding(.leading, 12)
+					Picker("", selection: $selectedOption) {
+						ForEach(options, id: \.self) { option in
+							Text(option) // Display each option as Text
+						}
 					}
+					.pickerStyle(.segmented)
+					.padding()
 				}
-				.pickerStyle(.segmented)
-				.padding()
 				
 				Text("1st Rank")
 					.leading()
@@ -92,16 +81,29 @@ struct PositionDetailView: View {
 				
 					// MARK: - the generated board is here.
 				HStack {
-					ForEach(viewModel.position, id: \.self) { index in
-						Text(index)
-							.font(.custom("VoidRegular", size: 30))
-							.frame(width: 44, height: 44)
-							.background(Color.gray.opacity(0.3))
-							.cornerRadius(6)
+					if selectedOption == "Text"{
+						ForEach(viewModel.position, id: \.self) { index in
+							Text(index)
+								.font(.custom("VoidRegular", size: 30))
+								.frame(width: 44, height: 44)
+								.background(Color.gray.opacity(0.3))
+								.cornerRadius(6)
+						}
+					}
+					else{
+						
+						ForEach(0..<viewModel.vPosition.count) {index in
+							viewModel.vPosition[index]
+								.resizable()
+								.frame(width: 44, height: 44)
+								.background(Color.gray.opacity(0.3))
+								.cornerRadius(6)
+						}
+						
 					}
 				}
 				
-				Spacer().frame(height: 30*3)
+				Spacer().frame(height: 90)
 				
 				VStack {
 					HStack {
@@ -150,6 +152,9 @@ struct PositionDetailView: View {
 			.sheet(isPresented: $isSharing) {
 				ShareSheet(activityItems: ["Check out this Chess960 position: #\(positionID)"])
 			}
+			.onAppear(){
+				viewModel.regeneratePosition()
+			}
 		}
 	}
 	
@@ -169,6 +174,6 @@ struct ShareSheet: UIViewControllerRepresentable {
 
 #Preview {
 	// Provide an example position for the preview
-	PositionDetailView(viewModel: PositionViewModel(position: ["R", "N", "B", "Q", "K", "B", "N", "R"]))
+	PositionDetailView(viewModel: PositionViewModel(position: ["R", "N", "B", "Q", "K", "B", "N", "R"], vPosition: []))
 }
 

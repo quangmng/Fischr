@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeView: View {  
 	
 	@State var Gen = GenerateViewModel()
 	@State var getStarted: Bool = false

@@ -10,7 +10,8 @@ import SwiftUI
 struct GenerateView: View {
 	
 	@Binding var isFavourite: Bool
-	@StateObject private var viewModel = PositionViewModel(position: Array(repeating: "", count: 8))
+	@State private var shouldNavigate = false
+	@StateObject private var viewModel = PositionViewModel(position: Array(repeating: "", count: 8), vPosition: [])
 	
 	var body: some View {
 		NavigationStack {
@@ -21,19 +22,23 @@ struct GenerateView: View {
 						.leading()
 						.padding(.horizontal)
 					
-					NavigationLink {
+					/*NavigationLink(){
 						PositionDetailView(viewModel: viewModel)
+						
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 20)
 								.foregroundStyle(Color.fischrTab)
 								.frame(height: 180)
 								.padding(.horizontal, 20)
+//								.onTapGesture {
+//									viewModel.regeneratePosition() // Generate a new position
+//								}
 							
 							Image(systemName: "shuffle")
 								.resizable()
 								.frame(width: 60, height: 50)
-								
+							
 							
 							VStack {
 								Text("Random")
@@ -44,8 +49,15 @@ struct GenerateView: View {
 							.padding(.bottom, 15)
 						}
 						.foregroundStyle(Color.primary)
-					}
+					}*/
 					
+					NavigationLink{
+						PositionDetailView(viewModel: viewModel)
+					} label:{
+						RandomButton()
+					}
+						
+				
 					
 					Spacer().frame(height: 30)
 					
@@ -91,9 +103,6 @@ struct GenerateView: View {
 			.navigationTitle("Generate")
 		}
 	}
-//	private func generatePosition() {
-//		viewModel.currentPosition = generateChess960Position()
-//	}
 	
 	private func optionCard(systemName: String? = nil, imageName: String? = nil, text: String, color: Color) -> some View {
 		ZStack {
@@ -148,3 +157,28 @@ struct GenerateView: View {
 	//        GenerateView(ge: .constant(gvm.storedGeneration[0]))
 	//    }
 	//}
+
+struct RandomButton: View {
+	var body: some View {
+		ZStack {
+			RoundedRectangle(cornerRadius: 20)
+				.foregroundStyle(Color.fischrTab)
+				.frame(height: 180)
+				.padding(.horizontal, 20)
+				
+			
+			Image(systemName: "shuffle")
+				.resizable()
+				.frame(width: 60, height: 50)
+			
+			VStack {
+				Text("Random")
+					.font(.custom("VoidRegular", size: 35))
+					.bottomLeading()
+					.padding(.horizontal, 40)
+			}
+			.padding(.bottom, 15)
+		}
+		.foregroundStyle(Color.primary)
+	}
+}
