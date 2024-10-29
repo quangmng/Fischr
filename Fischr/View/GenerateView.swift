@@ -11,7 +11,7 @@ struct GenerateView: View {
 	
 	@Binding var isFavourite: Bool
 	@State private var shouldNavigate = false
-	@StateObject private var viewModel = PositionViewModel()
+    @StateObject private var viewModel = PositionViewModel()
 	
 	var body: some View {
 		NavigationStack {
@@ -21,35 +21,6 @@ struct GenerateView: View {
 						.font(.headline)
 						.leading()
 						.padding(.horizontal)
-					
-					/*NavigationLink(){
-						PositionDetailView(viewModel: viewModel)
-						
-					} label: {
-						ZStack {
-							RoundedRectangle(cornerRadius: 20)
-								.foregroundStyle(Color.fischrTab)
-								.frame(height: 180)
-								.padding(.horizontal, 20)
-//								.onTapGesture {
-//									viewModel.regeneratePosition() // Generate a new position
-//								}
-							
-							Image(systemName: "shuffle")
-								.resizable()
-								.frame(width: 60, height: 50)
-							
-							
-							VStack {
-								Text("Random")
-									.font(.custom("VoidRegular", size: 35))
-									.bottomLeading()
-									.padding(.horizontal, 40)
-							}
-							.padding(.bottom, 15)
-						}
-						.foregroundStyle(Color.primary)
-					}*/
 					
 					NavigationLink{
 						PositionDetailView(viewModel: viewModel)

@@ -9,14 +9,42 @@ import Foundation
 import SwiftUI
 
 class PositionViewModel: ObservableObject {
-	let initialPosition = 0
-	@Published var positionIndex: Int = Positions.initialPositionIndex
-	
-	func generateNewPosition() {
-		self.positionIndex = Int.random(in: 0..<960)
-		animatePositionChange()
-	}
-	
+    @Published var currentPosition: [String] = []
+    @Published var positionID: Int = Positions.initialPosition
+    @Published var container: [String] = []
+    @Published var vPosition: [String] = [] // Change to [String]
+    
+    init() {
+        generateNewPosition()
+    }
+    
+    func generateNewPosition() {
+        let id = Int.random(in: 0..<Positions.allPositions.count)
+        self.positionID = id
+        separateChar(posID: id)
+    }
+    
+    func separateChar(posID: Int) {
+        let positionString = Positions.allPositions[posID]
+        self.container = positionString.map { String($0) }
+        textToImage()
+    }
+    
+    func textToImage() {
+        self.vPosition = container.map { imageName(for: $0) }
+    }
+    
+    private func imageName(for character: String) -> String {
+        // Map each character to its corresponding image name
+        switch character {
+        case "B": return "B"
+        case "Q": return "Q"
+        case "N": return "N"
+        case "R": return "R"
+        case "K": return "K"
+        default: return "unknown"
+        }
+    }
 }
 
 

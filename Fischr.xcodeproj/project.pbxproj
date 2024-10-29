@@ -20,6 +20,8 @@
 		C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */; };
 		C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679AB2CC3701800DAF988 /* FischrApp.swift */; };
 		C58679B42CC3701800DAF988 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58679AC2CC3701800DAF988 /* Persistence.swift */; };
+		C5F186F22CD0E6FF002CC4D4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F186F12CD0E6F3002CC4D4 /* String.swift */; };
+		C5F186F42CD0E802002CC4D4 /* PiecesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F186F32CD0E7F8002CC4D4 /* PiecesModel.swift */; };
 		FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF02CC8884600477041 /* GridView.swift */; };
 		FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF22CC8884F00477041 /* GridBView.swift */; };
 		FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF42CC8D40100477041 /* HomeView.swift */; };
@@ -32,7 +34,7 @@
 		FD0BEBE02CCF4BEB00477041 /* PositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */; };
 		FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBE12CD0496000477041 /* BoardView.swift */; };
 		FD29965B2CD0C7630012EC55 /* PositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */; };
-		FDEABCFA2CD0CE1F00DBF978 /* 960Positions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEABCF92CD0CE1B00DBF978 /* 960Positions.swift */; };
+		FDEABCFA2CD0CE1F00DBF978 /* PositionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		C58679AC2CC3701800DAF988 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		C58679AE2CC3701800DAF988 /* Fischr.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fischr.xcdatamodel; sourceTree = "<group>"; };
 		C58679B52CC3702A00DAF988 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C5F186F12CD0E6F3002CC4D4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		C5F186F32CD0E7F8002CC4D4 /* PiecesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecesModel.swift; sourceTree = "<group>"; };
 		FD0BEAF02CC8884600477041 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		FD0BEAF22CC8884F00477041 /* GridBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridBView.swift; sourceTree = "<group>"; };
 		FD0BEAF42CC8D40100477041 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -64,7 +68,7 @@
 		FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionDetailView.swift; sourceTree = "<group>"; };
 		FD0BEBE12CD0496000477041 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionViewModel.swift; sourceTree = "<group>"; };
-		FDEABCF92CD0CE1B00DBF978 /* 960Positions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 960Positions.swift; sourceTree = "<group>"; };
+		FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		C57D618B2CCBB6B600F49481 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				C5F186F12CD0E6F3002CC4D4 /* String.swift */,
 				C57D618A2CCBB6B600F49481 /* UIExtension.swift */,
 			);
 			path = Extension;
@@ -117,7 +122,8 @@
 		C58679A32CC3701800DAF988 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FDEABCF92CD0CE1B00DBF978 /* 960Positions.swift */,
+				C5F186F32CD0E7F8002CC4D4 /* PiecesModel.swift */,
+				FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */,
 				C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */,
 				C58679AC2CC3701800DAF988 /* Persistence.swift */,
 			);
@@ -277,9 +283,11 @@
 				C58679B42CC3701800DAF988 /* Persistence.swift in Sources */,
 				C57D61872CCBB65900F49481 /* GenerateView.swift in Sources */,
 				FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */,
-				FDEABCFA2CD0CE1F00DBF978 /* 960Positions.swift in Sources */,
+				FDEABCFA2CD0CE1F00DBF978 /* PositionsModel.swift in Sources */,
 				FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */,
 				FD0BEAF72CC8D8D600477041 /* PlayView.swift in Sources */,
+				C5F186F42CD0E802002CC4D4 /* PiecesModel.swift in Sources */,
+				C5F186F22CD0E6FF002CC4D4 /* String.swift in Sources */,
 				FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */,
 				C57D61132CC880ED00F49481 /* FischrViewModel.swift in Sources */,
 			);

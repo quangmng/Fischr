@@ -17,10 +17,6 @@ struct PositionDetailView: View {
 	@State private var selectedOption = "Text"
 	let options = ["Text","Visual"]
 	
-	private var positionID: Int {
-		viewModel.calculateChess960ID(from: viewModel.position)
-	}
-	
 	init(viewModel: PositionViewModel) {
 		self.viewModel = viewModel
 	}
@@ -47,7 +43,7 @@ struct PositionDetailView: View {
 						}
 					}
 					
-					ShareLink(item: "Check out this Chess960 position: #\(positionID)") {
+                    ShareLink(item: "Check out this Chess960 position: #\(viewModel.positionID)") {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
 								.frame(width: 50, height: 40)
@@ -58,7 +54,7 @@ struct PositionDetailView: View {
 				}
 				.padding(.horizontal, 8)
 				
-				Text("\(viewModel.calculateChess960ID(from: viewModel.position))")
+                Text("\(viewModel.positionID)")
 					.leading()
 					.font(.custom("VoidSemibold", size: 45))
 					.padding(8)
@@ -79,29 +75,26 @@ struct PositionDetailView: View {
 					.leading()
 					.padding(8)
 				
-					// MARK: - the generated board is here.
-				HStack {
-					if selectedOption == "Text"{
-						ForEach(viewModel.position, id: \.self) { index in
-							Text(index)
-								.font(.custom("VoidRegular", size: 30))
-								.frame(width: 44, height: 44)
-								.background(Color.gray.opacity(0.3))
-								.cornerRadius(6)
-						}
-					}
-					else{
-						
-						ForEach(0..<viewModel.vPosition.count) {index in
-							viewModel.vPosition[index]
-								.resizable()
-								.frame(width: 44, height: 44)
-								.background(Color.gray.opacity(0.3))
-								.cornerRadius(6)
-						}
-						
-					}
-				}
+                // MARK: - the generated board is here.
+                HStack {
+                    if selectedOption == "Text" {
+                        ForEach(Array(viewModel.container.enumerated()), id: \.offset) { index, character in
+                            Text(character)
+                                .font(.custom("VoidRegular", size: 30))
+                                .frame(width: 44, height: 44)
+                                .background(Color.gray.opacity(0.3))
+                                .cornerRadius(6)
+                        }
+                    } else {
+                        ForEach(Array(viewModel.vPosition.enumerated()), id: \.offset) { index, imageName in
+                            Image(imageName)
+                                .resizable()
+                                .frame(width: 44, height: 44)
+                                .background(Color.gray.opacity(0.3))
+                                .cornerRadius(6)
+                        }
+                    }
+                }
 				
 				Spacer().frame(height: 90)
 				
@@ -109,7 +102,7 @@ struct PositionDetailView: View {
 					HStack {
 							// MARK: - Regenerate button
 						Button {
-							viewModel.regeneratePosition()
+                            viewModel.generateNewPosition()
 						} label: {
 							ZStack {
 								RoundedRectangle(cornerRadius: 15)
@@ -150,10 +143,11 @@ struct PositionDetailView: View {
 			.navigationTitle("Generated Position")
 			.toolbar(.hidden, for: .tabBar)
 			.sheet(isPresented: $isSharing) {
-				ShareSheet(activityItems: ["Check out this Chess960 position: #\(positionID)"])
+                ShareSheet(activityItems: ["Check out this Chess960 position: #\(viewModel.positionID)"])
 			}
+            // temporary
 			.onAppear(){
-				viewModel.regeneratePosition()
+                viewModel.generateNewPosition()
 			}
 		}
 	}
@@ -173,7 +167,5 @@ struct ShareSheet: UIViewControllerRepresentable {
 
 
 #Preview {
-	// Provide an example position for the preview
-	PositionDetailView(viewModel: PositionViewModel(position: ["R", "N", "B", "Q", "K", "B", "N", "R"], vPosition: []))
+    PositionDetailView(viewModel: PositionViewModel())
 }
-
