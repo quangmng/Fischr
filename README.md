@@ -25,6 +25,15 @@ N/A
 
 ### App Screenshots
 
+![image](https://github.com/user-attachments/assets/f416138d-fa7a-4df2-8a83-7965b84dc333)
+
+![image](https://github.com/user-attachments/assets/c6adf5dc-192b-476b-b85e-3ca1d9ce4d30)
+
+![image](https://github.com/user-attachments/assets/ca21534b-bc43-4daa-816b-41798bcd0309)
+
+![image](https://github.com/user-attachments/assets/3fca448c-f693-4501-ab2e-08574f8f2005)
+
+
 ### Instructions
 
 - When opening the app, first-time users will be navigated to the onboarding view, please follow the instructions inside.
