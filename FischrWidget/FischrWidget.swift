@@ -8,44 +8,59 @@
 import WidgetKit
 import SwiftUI
 import CoreData
+import Fischr
+
+
+struct SimpleEntry: TimelineEntry {
+	let date: Date
+	let position: String
+	let isFavourite: Bool
+	let pieces: [String]
+}
 
 struct Provider: TimelineProvider {
-	let viewModel = GenerateViewModel() // Now accessible
+	let viewModel = GenerateViewModel()
 
 	func placeholder(in context: Context) -> SimpleEntry {
-		SimpleEntry(date: Date(), position: "Placeholder", isFavourite: false)
+		SimpleEntry(date: Date(), position: "959", isFavourite: false, pieces: ["B", "B", "B", "B", "B", "B", "B", "B"] )
 	}
 
 	func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
 		let latestPosition = viewModel.fetchLatestPosition()
 		let entry = SimpleEntry(
 			date: Date(),
-			position: latestPosition?.positionGenerated ?? "No Position",
-			isFavourite: latestPosition?.isFavourite ?? false
+			position: latestPosition?.positionGenerated ?? "959",
+			isFavourite: latestPosition?.isFavourite ?? false, pieces: []
 		)
+		completion(entry)
+	}
+	
+	func getSnapshot2(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
+		let pieces = ["N", "R", "Q", "B", "K", "B", "N", "R"] // Example setup
+		let entry = SimpleEntry(date: Date(), position: "959", isFavourite: true, pieces: pieces)
 		completion(entry)
 	}
 
 	func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
-		var entries: [SimpleEntry] = []
+		let pieces = ["N", "R", "Q", "B", "K", "B", "N", "R"] // Example setup
+		let entry = SimpleEntry(date: Date(), position: "959", isFavourite: true, pieces: pieces)
 
+		let timeline = Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(3600)))
+		completion(timeline)
+	}
+
+
+	func getTimeline2(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
 		let latestPosition = viewModel.fetchLatestPosition()
 		let entry = SimpleEntry(
 			date: Date(),
-			position: latestPosition?.positionGenerated ?? "No Position",
-			isFavourite: latestPosition?.isFavourite ?? false
+			position: latestPosition?.positionGenerated ?? "959",
+			isFavourite: latestPosition?.isFavourite ?? false, pieces: ["B", "B", "B", "B", "B", "B", "B", "B"]
 		)
-		entries.append(entry)
-
-		let timeline = Timeline(entries: entries, policy: .after(Date().addingTimeInterval(3600)))
+		
+		let timeline = Timeline(entries: [entry], policy: .after(Date().addingTimeInterval(3600)))
 		completion(timeline)
 	}
-}
-
-struct SimpleEntry: TimelineEntry {
-	let date: Date
-	let position: String
-	let isFavourite: Bool
 }
 
 struct FischrWidgetEntryView: View {
@@ -53,27 +68,41 @@ struct FischrWidgetEntryView: View {
 
 	var body: some View {
 		VStack {
-			Text("Current Position:")
-				.font(.headline)
+			HStack {
+				Text("Pos \(entry.position)")
+					.font(.headline)
+				Spacer()
 
-			Text(entry.position)
-				.font(.title3)
-				.padding(.bottom, 8)
+				// Randomize: Opens the app to generate a new position
+				Link(destination: URL(string: "fischr://randomise")!) {
+					Image(systemName: "shuffle")
+				}
+
+				// Toggle Favorite: Opens the app to toggle favorite
+				Link(destination: URL(string: "fischr://save")!) {
+					Image(systemName: entry.isFavourite ? "heart.fill" : "heart")
+						.foregroundColor(entry.isFavourite ? .red : .gray)
+				}
+			}
+			.padding(.horizontal)
 
 			HStack {
-				Image(systemName: entry.isFavourite ? "heart.fill" : "heart")
-					.foregroundColor(entry.isFavourite ? .red : .gray)
-				Text(entry.isFavourite ? "Favorite" : "Not Favorite")
-					.font(.caption)
-			}
-
-			Text("Updated:")
-			Text(entry.date, style: .time)
-				.font(.caption)
+							ForEach(entry.pieces, id: \.self) { piece in
+								Image(piece) // Display the piece image
+									.resizable()
+									.aspectRatio(contentMode: .fit)
+									.frame(width: 30, height: 30)
+									.background(Color.gray.opacity(0.3))
+									.cornerRadius(5)
+							}
+						}
+			.padding(.vertical)
 		}
 		.padding()
+		.containerBackground(Color(.systemBackground), for: .widget)
 	}
 }
+
 
 struct FischrWidget: Widget {
 	let kind: String = "FischrWidget"
@@ -82,14 +111,14 @@ struct FischrWidget: Widget {
 		StaticConfiguration(kind: kind, provider: Provider()) { entry in
 			FischrWidgetEntryView(entry: entry)
 		}
-		.configurationDisplayName("Fischr Widget")
-		.description("View the latest generated position.")
-		.supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+		.configurationDisplayName("Fischr Position Widget")
+		.description("Displays the latest position and allows you to randomize or favorite it.")
+		.supportedFamilies([.systemMedium]) // Only supports medium size
 	}
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemMedium) {
 	FischrWidget()
 } timeline: {
-	SimpleEntry(date: .now, position: "Sample", isFavourite: true)
+	SimpleEntry(date: .now, position: "959", isFavourite: true, pieces: ["B", "B", "B", "B", "B", "B", "B", "B"])
 }

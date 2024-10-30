@@ -39,6 +39,8 @@
 		FDEABD042CD1951500DBF978 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEABD032CD1951500DBF978 /* WidgetKit.framework */; };
 		FDEABD062CD1951500DBF978 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEABD052CD1951500DBF978 /* SwiftUI.framework */; };
 		FDEABD172CD1951600DBF978 /* FischrWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FDEABD012CD1951500DBF978 /* FischrWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FDEABD232CD1B26E00DBF978 /* GenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */; };
+		FDEABD242CD1B35400DBF978 /* Fischr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C58679AA2CC3701800DAF988 /* Fischr.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,10 +115,18 @@
 			);
 			target = FDEABD002CD1951500DBF978 /* FischrWidgetExtension */;
 		};
+		FDEABD212CD1B15500DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				FischrWidget.swift,
+				RandomisePositionIntent.swift,
+			);
+			target = C58679892CC3691F00DAF988 /* Fischr */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		FDEABD072CD1951500DBF978 /* FischrWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FDEABD1B2CD1951600DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FischrWidget; sourceTree = "<group>"; };
+		FDEABD072CD1951500DBF978 /* FischrWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FDEABD212CD1B15500DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FDEABD1B2CD1951600DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FischrWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +173,7 @@
 		C58679812CC3691F00DAF988 = {
 			isa = PBXGroup;
 			children = (
-				FDEABD1F2CD1AD2F00DBF978 /* share */,
+				FDEABD1F2CD1AD2F00DBF978 /* Shared */,
 				FDEABD1E2CD19DF400DBF978 /* FischrWidgetExtension.entitlements */,
 				C58679B52CC3702A00DAF988 /* README.md */,
 				C58679AD2CC3701800DAF988 /* Fischr */,
@@ -263,12 +273,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FDEABD1F2CD1AD2F00DBF978 /* share */ = {
+		FDEABD1F2CD1AD2F00DBF978 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */,
 			);
-			path = share;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,6 +423,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEABD242CD1B35400DBF978 /* Fischr.xcdatamodeld in Sources */,
+				FDEABD232CD1B26E00DBF978 /* GenerateViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

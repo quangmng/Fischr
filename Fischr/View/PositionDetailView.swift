@@ -140,29 +140,6 @@ struct PositionDetailView: View {
 								}
 							}
 						}
-						
-						
-						
-							// MARK: - Board View
-						List{
-							
-							ForEach(gvm.storedGeneration){index in
-								Text("\(index.positionGenerated ?? "")")
-							}
-							.onDelete(perform: gvm.deleteData(indexSet:))
-							
-						}
-					}
-					
-					Button {
-						
-					} label: {
-						ZStack {
-							RoundedRectangle(cornerRadius: 15)
-								.foregroundStyle(Color.buttonBlue)
-								.frame(width:370, height: 50)
-							Text("Play this position")
-						}
 					}
 				}
 			}

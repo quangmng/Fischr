@@ -16,20 +16,50 @@ class GenerateViewModel: ObservableObject {
 	@Published var favGen: [GenerateEntity] = []
 	
 		// MARK: - Initializer
+//	init() {
+//		let modelURL = Bundle.main.url(forResource: "Fischr", withExtension: "momd")!
+//		let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)!
+//		container = NSPersistentContainer(name: "Fischr", managedObjectModel: managedObjectModel)
+//		
+//		if let storeURL = FileManager.default
+//			.containerURL(forSecurityApplicationGroupIdentifier: "group.com.yourname.Fischr")?
+//			.appendingPathComponent("Fischr.sqlite") {
+//			let storeDescription = NSPersistentStoreDescription(url: storeURL)
+//			container.persistentStoreDescriptions = [storeDescription]
+//		}
+//		
+//		container.loadPersistentStores { (description, error) in
+//			if let error = error {
+//				print("ERROR: \(error.localizedDescription)")
+//			}
+//		}
+//		fetchCoreData()
+//	}
 	init() {
 		container = NSPersistentContainer(name: "Fischr")
-		
+
 		if let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.com.yourname.Fischr")?.appendingPathComponent("Fischr.sqlite") {
 			let storeDescription = NSPersistentStoreDescription(url: storeURL)
 			container.persistentStoreDescriptions = [storeDescription]
 		}
-		
+
 		container.loadPersistentStores { (description, error) in
 			if let error = error {
 				print("ERROR: \(error.localizedDescription)")
 			}
 		}
-		fetchCoreData()
+	}
+	
+		// MARK: - New Generation
+	
+	func generateNewRandomPosition() {
+		// Add logic to generate a new random position and save it
+		let newPosition = "960"  // Replace with actual random logic
+		let entity = GenerateEntity(context: container.viewContext)
+		entity.positionGenerated = newPosition
+		entity.isFavourite = false
+		entity.timestamp = Date()
+		saveData()
 	}
 	
 		// MARK: - Add New Generation
@@ -102,7 +132,7 @@ class GenerateViewModel: ObservableObject {
 		let request = NSFetchRequest<GenerateEntity>(entityName: "GenerateEntity")
 		request.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
 		request.fetchLimit = 1
-		
+
 		do {
 			return try container.viewContext.fetch(request).first
 		} catch {
@@ -110,4 +140,5 @@ class GenerateViewModel: ObservableObject {
 			return nil
 		}
 	}
+	
 }
