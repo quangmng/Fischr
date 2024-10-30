@@ -7,82 +7,89 @@
 
 import WidgetKit
 import SwiftUI
+import CoreData
 
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
-    }
+struct Provider: TimelineProvider {
+	let viewModel = GenerateViewModel() // Now accessible
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
-    }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
+	func placeholder(in context: Context) -> SimpleEntry {
+		SimpleEntry(date: Date(), position: "Placeholder", isFavourite: false)
+	}
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
+	func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> Void) {
+		let latestPosition = viewModel.fetchLatestPosition()
+		let entry = SimpleEntry(
+			date: Date(),
+			position: latestPosition?.positionGenerated ?? "No Position",
+			isFavourite: latestPosition?.isFavourite ?? false
+		)
+		completion(entry)
+	}
 
-        return Timeline(entries: entries, policy: .atEnd)
-    }
+	func getTimeline(in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> Void) {
+		var entries: [SimpleEntry] = []
 
-//    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
+		let latestPosition = viewModel.fetchLatestPosition()
+		let entry = SimpleEntry(
+			date: Date(),
+			position: latestPosition?.positionGenerated ?? "No Position",
+			isFavourite: latestPosition?.isFavourite ?? false
+		)
+		entries.append(entry)
+
+		let timeline = Timeline(entries: entries, policy: .after(Date().addingTimeInterval(3600)))
+		completion(timeline)
+	}
 }
 
 struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationAppIntent
+	let date: Date
+	let position: String
+	let isFavourite: Bool
 }
 
-struct FischrWidgetEntryView : View {
-    var entry: Provider.Entry
+struct FischrWidgetEntryView: View {
+	var entry: SimpleEntry
 
-    var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
+	var body: some View {
+		VStack {
+			Text("Current Position:")
+				.font(.headline)
 
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
-    }
+			Text(entry.position)
+				.font(.title3)
+				.padding(.bottom, 8)
+
+			HStack {
+				Image(systemName: entry.isFavourite ? "heart.fill" : "heart")
+					.foregroundColor(entry.isFavourite ? .red : .gray)
+				Text(entry.isFavourite ? "Favorite" : "Not Favorite")
+					.font(.caption)
+			}
+
+			Text("Updated:")
+			Text(entry.date, style: .time)
+				.font(.caption)
+		}
+		.padding()
+	}
 }
 
 struct FischrWidget: Widget {
-    let kind: String = "FischrWidget"
+	let kind: String = "FischrWidget"
 
-    var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            FischrWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
-        }
-    }
-}
-
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
+	var body: some WidgetConfiguration {
+		StaticConfiguration(kind: kind, provider: Provider()) { entry in
+			FischrWidgetEntryView(entry: entry)
+		}
+		.configurationDisplayName("Fischr Widget")
+		.description("View the latest generated position.")
+		.supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+	}
 }
 
 #Preview(as: .systemSmall) {
-    FischrWidget()
+	FischrWidget()
 } timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
+	SimpleEntry(date: .now, position: "Sample", isFavourite: true)
 }

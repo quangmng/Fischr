@@ -16,11 +16,11 @@ struct PositionDetailView: View {
 	@ObservedObject private var viewModel: PositionViewModel
 	@State private var selectedOption = "Text"
 	let options = ["Text","Visual"]
-    @ObservedObject private var gvm: GenerateViewModel
+	@ObservedObject private var gvm: GenerateViewModel
 	
-    init(viewModel: PositionViewModel, gvm: GenerateViewModel) {
+	init(viewModel: PositionViewModel, gvm: GenerateViewModel) {
 		self.viewModel = viewModel
-        self.gvm = gvm
+		self.gvm = gvm
 	}
 	
 	var body: some View {
@@ -35,7 +35,13 @@ struct PositionDetailView: View {
 					Spacer()
 					
 					Button {
-						isFavourite.toggle()
+						withAnimation {
+							isFavourite.toggle()
+						}
+							//						gvm.updateObj(for: GenerateEntity(), isFavourite: isFavourite)
+						if let entity = gvm.storedGeneration.first(where: { $0.positionGenerated == viewModel.currentPosition }) {
+							gvm.updateObj(for: entity, isFavourite: isFavourite)
+						}
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
@@ -45,7 +51,7 @@ struct PositionDetailView: View {
 						}
 					}
 					
-                    ShareLink(item: "Check out this Chess960 position: #\(viewModel.positionID)") {
+					ShareLink(item: "Check out this Chess960 position: #\(viewModel.positionID)") {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
 								.frame(width: 50, height: 40)
@@ -56,14 +62,14 @@ struct PositionDetailView: View {
 				}
 				.padding(.horizontal, 8)
 				
-                Text("\(viewModel.positionID)")
+				Text("\(viewModel.positionID)")
 					.leading()
 					.font(.custom("VoidSemibold", size: 45))
 					.padding(8)
 				
 				VStack(alignment: .leading) {
 					Text("Select viewing mode")
-						
+					
 					Picker("", selection: $selectedOption) {
 						ForEach(options, id: \.self) { option in
 							Text(option) // Display each option as Text
@@ -72,57 +78,57 @@ struct PositionDetailView: View {
 					.pickerStyle(.segmented)
 					
 				}
-                .padding()
+				.padding()
 				
-                VStack{
-                    Text("1st Rank")
-                        .leading()
-                        .padding(.leading,16)
-                    
-                    // MARK: - the generated board is here.
-                    HStack() {
-                        if selectedOption == "Text" {
-                            ForEach(Array(viewModel.container.enumerated()), id: \.offset) { index, character in
-                                Text(character)
-                                    .font(.custom("VoidRegular", size: 30))
-                                    .frame(width: 44, height: 44)
-                                    .background(Color.gray.opacity(0.3))
-                                    .cornerRadius(6)
-                                
-                                    
-                            }
-                        } else {
-                            ForEach(Array(viewModel.vPosition.enumerated()), id: \.offset) { index, imageName in
-                                Image(imageName)
-                                    .resizable()
-                                
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 44, height: 44)
-                                    .padding(5)
-                                
-                                    .background(Color.gray.opacity(0.3))
-                                    .cornerRadius(6)
-                                    
-                            }
-                            
-                            
-                        }
-                            
-                    }
-                    .scaleEffect(0.85)
-                    
-                }
-                
-                
-            
+				VStack{
+					Text("1st Rank")
+						.leading()
+						.padding(.leading,16)
+					
+						// MARK: - the generated board is here.
+					HStack() {
+						if selectedOption == "Text" {
+							ForEach(Array(viewModel.container.enumerated()), id: \.offset) { index, character in
+								Text(character)
+									.font(.custom("VoidRegular", size: 30))
+									.frame(width: 44, height: 44)
+									.background(Color.gray.opacity(0.3))
+									.cornerRadius(6)
+								
+								
+							}
+						} else {
+							ForEach(Array(viewModel.vPosition.enumerated()), id: \.offset) { index, imageName in
+								Image(imageName)
+									.resizable()
+								
+									.aspectRatio(contentMode: .fit)
+									.frame(width: 44, height: 44)
+									.padding(5)
+								
+									.background(Color.gray.opacity(0.3))
+									.cornerRadius(6)
+								
+							}
+							
+							
+						}
+						
+					}
+					.scaleEffect(0.85)
+					
+				}
+				
+				
+				
 				Spacer().frame(height: 90)
 				
 				VStack {
 					HStack {
 							// MARK: - Regenerate button
 						Button {
-                            viewModel.generateNewPosition()
-                            gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
+							viewModel.generateNewPosition()
+							gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
 						} label: {
 							ZStack {
 								RoundedRectangle(cornerRadius: 15)
@@ -134,19 +140,19 @@ struct PositionDetailView: View {
 								}
 							}
 						}
-                        
-                        
+						
+						
 						
 							// MARK: - Board View
-                        List{
-                            
-                            ForEach(gvm.storedGeneration){index in
-                                Text("\(index.positionGenerated ?? "")")
-                            }
-                            .onDelete(perform: gvm.deleteData(indexSet:))
-                            
-                        }
-                    }
+						List{
+							
+							ForEach(gvm.storedGeneration){index in
+								Text("\(index.positionGenerated ?? "")")
+							}
+							.onDelete(perform: gvm.deleteData(indexSet:))
+							
+						}
+					}
 					
 					Button {
 						
@@ -160,18 +166,18 @@ struct PositionDetailView: View {
 					}
 				}
 			}
-            .padding()
-
+			.padding()
+			
 			.navigationTitle("Generated Position")
 			.toolbar(.hidden, for: .tabBar)
 			.sheet(isPresented: $isSharing) {
-                ShareSheet(activityItems: ["Check out this Chess960 position: #\(viewModel.positionID)"])
+				ShareSheet(activityItems: ["Check out this Chess960 position: #\(viewModel.positionID)"])
 			}
-            // temporary
+				// temporary
 			.onAppear(){
-//                viewModel.generateNewPosition()
-                gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
-
+					//                viewModel.generateNewPosition()
+				gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
+				
 			}
 		}
 	}
@@ -191,5 +197,5 @@ struct ShareSheet: UIViewControllerRepresentable {
 
 
 #Preview {
-    PositionDetailView(viewModel: PositionViewModel(), gvm: GenerateViewModel())
+	PositionDetailView(viewModel: PositionViewModel(), gvm: GenerateViewModel())
 }

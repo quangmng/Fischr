@@ -163,6 +163,7 @@
 		C58679812CC3691F00DAF988 = {
 			isa = PBXGroup;
 			children = (
+				FDEABD1F2CD1AD2F00DBF978 /* share */,
 				FDEABD1E2CD19DF400DBF978 /* FischrWidgetExtension.entitlements */,
 				C58679B52CC3702A00DAF988 /* README.md */,
 				C58679AD2CC3701800DAF988 /* Fischr */,
@@ -220,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */,
-				C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */,
 				C57D61122CC880DD00F49481 /* FischrViewModel.swift */,
 			);
 			path = ViewModel;
@@ -261,6 +261,14 @@
 				FDEABD052CD1951500DBF978 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDEABD1F2CD1AD2F00DBF978 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */,
+			);
+			path = share;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
