@@ -35,7 +35,7 @@ class PositionViewModel: ObservableObject {
         self.vPosition = container.map { imageName(for: $0) }
     }
     
-    private func imageName(for character: String) -> String {
+    func imageName(for character: String) -> String {
         // Map each character to its corresponding image name
         switch character {
         case "B": return "B"

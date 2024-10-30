@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C55573492CCE7A3B00F0CE3B /* GenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */; };
-		C57D61132CC880ED00F49481 /* FischrViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D61122CC880DD00F49481 /* FischrViewModel.swift */; };
 		C57D61852CCA155600F49481 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D61842CCA155600F49481 /* OnboardingView.swift */; };
 		C57D61872CCBB65900F49481 /* GenerateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D61862CCBB65900F49481 /* GenerateView.swift */; };
 		C57D61892CCBB66E00F49481 /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57D61882CCBB66E00F49481 /* HistoryItemView.swift */; };
@@ -23,10 +22,19 @@
 		C5F186F22CD0E6FF002CC4D4 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F186F12CD0E6F3002CC4D4 /* String.swift */; };
 		C5F186F42CD0E802002CC4D4 /* PiecesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F186F32CD0E7F8002CC4D4 /* PiecesModel.swift */; };
 		C5F186F62CD102EA002CC4D4 /* CloseCross.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F186F52CD102EA002CC4D4 /* CloseCross.swift */; };
-		FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF02CC8884600477041 /* GridView.swift */; };
-		FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF22CC8884F00477041 /* GridBView.swift */; };
+		C5FAA1BE2CD23D1D00EA6AC4 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1B42CD23D1D00EA6AC4 /* AppIntent.swift */; };
+		C5FAA1BF2CD23D1D00EA6AC4 /* FischrWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1B62CD23D1D00EA6AC4 /* FischrWidget.swift */; };
+		C5FAA1C02CD23D1D00EA6AC4 /* FischrWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1B72CD23D1D00EA6AC4 /* FischrWidgetBundle.swift */; };
+		C5FAA1C12CD23D1D00EA6AC4 /* FischrWidgetControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1B82CD23D1D00EA6AC4 /* FischrWidgetControl.swift */; };
+		C5FAA1C22CD23D1D00EA6AC4 /* FischrWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1B92CD23D1D00EA6AC4 /* FischrWidgetLiveActivity.swift */; };
+		C5FAA1C32CD23D1D00EA6AC4 /* RandomisePositionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1BB2CD23D1D00EA6AC4 /* RandomisePositionIntent.swift */; };
+		C5FAA1C42CD23D1D00EA6AC4 /* ToggleFavouriteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1BC2CD23D1D00EA6AC4 /* ToggleFavouriteIntent.swift */; };
+		C5FAA1C52CD23D1D00EA6AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5FAA1B52CD23D1D00EA6AC4 /* Assets.xcassets */; };
+		C5FAA1C72CD23D1D00EA6AC4 /* FischrWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1B62CD23D1D00EA6AC4 /* FischrWidget.swift */; };
+		C5FAA1C82CD23D1D00EA6AC4 /* RandomisePositionIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FAA1BB2CD23D1D00EA6AC4 /* RandomisePositionIntent.swift */; };
+		C5FAA1C92CD25BF200EA6AC4 /* PositionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */; };
+		C5FAA1CA2CD2604400EA6AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C58679A82CC3701800DAF988 /* Assets.xcassets */; };
 		FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF42CC8D40100477041 /* HomeView.swift */; };
-		FD0BEAF72CC8D8D600477041 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEAF62CC8D8D600477041 /* PlayView.swift */; };
 		FD0BEB782CCA325700477041 /* VoidRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB752CCA325700477041 /* VoidRegular.ttf */; };
 		FD0BEB792CCA325700477041 /* VoidLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB732CCA325700477041 /* VoidLight.ttf */; };
 		FD0BEB7A2CCA325700477041 /* VoidBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0BEB722CCA325700477041 /* VoidBold.ttf */; };
@@ -69,7 +77,6 @@
 
 /* Begin PBXFileReference section */
 		C55573482CCE7A3B00F0CE3B /* GenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewModel.swift; sourceTree = "<group>"; };
-		C57D61122CC880DD00F49481 /* FischrViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FischrViewModel.swift; sourceTree = "<group>"; };
 		C57D61842CCA155600F49481 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C57D61862CCBB65900F49481 /* GenerateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateView.swift; sourceTree = "<group>"; };
 		C57D61882CCBB66E00F49481 /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
@@ -86,10 +93,16 @@
 		C5F186F12CD0E6F3002CC4D4 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		C5F186F32CD0E7F8002CC4D4 /* PiecesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiecesModel.swift; sourceTree = "<group>"; };
 		C5F186F52CD102EA002CC4D4 /* CloseCross.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseCross.swift; sourceTree = "<group>"; };
-		FD0BEAF02CC8884600477041 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		FD0BEAF22CC8884F00477041 /* GridBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridBView.swift; sourceTree = "<group>"; };
+		C5FAA1B42CD23D1D00EA6AC4 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		C5FAA1B52CD23D1D00EA6AC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C5FAA1B62CD23D1D00EA6AC4 /* FischrWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FischrWidget.swift; sourceTree = "<group>"; };
+		C5FAA1B72CD23D1D00EA6AC4 /* FischrWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FischrWidgetBundle.swift; sourceTree = "<group>"; };
+		C5FAA1B82CD23D1D00EA6AC4 /* FischrWidgetControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FischrWidgetControl.swift; sourceTree = "<group>"; };
+		C5FAA1B92CD23D1D00EA6AC4 /* FischrWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FischrWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		C5FAA1BA2CD23D1D00EA6AC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5FAA1BB2CD23D1D00EA6AC4 /* RandomisePositionIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomisePositionIntent.swift; sourceTree = "<group>"; };
+		C5FAA1BC2CD23D1D00EA6AC4 /* ToggleFavouriteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleFavouriteIntent.swift; sourceTree = "<group>"; };
 		FD0BEAF42CC8D40100477041 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		FD0BEAF62CC8D8D600477041 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		FD0BEB712CCA320900477041 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FD0BEB722CCA325700477041 /* VoidBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidBold.ttf; sourceTree = "<group>"; };
 		FD0BEB732CCA325700477041 /* VoidLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = VoidLight.ttf; sourceTree = "<group>"; };
@@ -106,28 +119,6 @@
 		FDEABD1D2CD19D9500DBF978 /* Fischr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fischr.entitlements; sourceTree = "<group>"; };
 		FDEABD1E2CD19DF400DBF978 /* FischrWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FischrWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		FDEABD1B2CD1951600DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = FDEABD002CD1951500DBF978 /* FischrWidgetExtension */;
-		};
-		FDEABD212CD1B15500DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FischrWidget.swift,
-				RandomisePositionIntent.swift,
-			);
-			target = C58679892CC3691F00DAF988 /* Fischr */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		FDEABD072CD1951500DBF978 /* FischrWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FDEABD212CD1B15500DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FDEABD1B2CD1951600DBF978 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = FischrWidget; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C58679872CC3691F00DAF988 /* Frameworks */ = {
@@ -154,8 +145,6 @@
 			children = (
 				C57D618B2CCBB6B600F49481 /* Extension */,
 				C57D61882CCBB66E00F49481 /* HistoryItemView.swift */,
-				FD0BEAF22CC8884F00477041 /* GridBView.swift */,
-				FD0BEAF02CC8884600477041 /* GridView.swift */,
 				C5F186F52CD102EA002CC4D4 /* CloseCross.swift */,
 			);
 			path = Helpers;
@@ -177,7 +166,7 @@
 				FDEABD1E2CD19DF400DBF978 /* FischrWidgetExtension.entitlements */,
 				C58679B52CC3702A00DAF988 /* README.md */,
 				C58679AD2CC3701800DAF988 /* Fischr */,
-				FDEABD072CD1951500DBF978 /* FischrWidget */,
+				C5FAA1BD2CD23D1D00EA6AC4 /* FischrWidget */,
 				FDEABD022CD1951500DBF978 /* Frameworks */,
 				C586798B2CC3691F00DAF988 /* Products */,
 			);
@@ -214,7 +203,6 @@
 		C58679A62CC3701800DAF988 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FD0BEAF62CC8D8D600477041 /* PlayView.swift */,
 				C57D61842CCA155600F49481 /* OnboardingView.swift */,
 				FD0BEAF42CC8D40100477041 /* HomeView.swift */,
 				FD0BEBE12CD0496000477041 /* BoardView.swift */,
@@ -231,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */,
-				C57D61122CC880DD00F49481 /* FischrViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -250,6 +237,22 @@
 				FD0BEB772CCA325700477041 /* Fonts */,
 			);
 			path = Fischr;
+			sourceTree = "<group>";
+		};
+		C5FAA1BD2CD23D1D00EA6AC4 /* FischrWidget */ = {
+			isa = PBXGroup;
+			children = (
+				C5FAA1B42CD23D1D00EA6AC4 /* AppIntent.swift */,
+				C5FAA1B52CD23D1D00EA6AC4 /* Assets.xcassets */,
+				C5FAA1B62CD23D1D00EA6AC4 /* FischrWidget.swift */,
+				C5FAA1B72CD23D1D00EA6AC4 /* FischrWidgetBundle.swift */,
+				C5FAA1B82CD23D1D00EA6AC4 /* FischrWidgetControl.swift */,
+				C5FAA1B92CD23D1D00EA6AC4 /* FischrWidgetLiveActivity.swift */,
+				C5FAA1BA2CD23D1D00EA6AC4 /* Info.plist */,
+				C5FAA1BB2CD23D1D00EA6AC4 /* RandomisePositionIntent.swift */,
+				C5FAA1BC2CD23D1D00EA6AC4 /* ToggleFavouriteIntent.swift */,
+			);
+			path = FischrWidget;
 			sourceTree = "<group>";
 		};
 		FD0BEB772CCA325700477041 /* Fonts */ = {
@@ -317,9 +320,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				FDEABD072CD1951500DBF978 /* FischrWidget */,
-			);
 			name = FischrWidgetExtension;
 			packageProductDependencies = (
 			);
@@ -384,6 +384,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5FAA1CA2CD2604400EA6AC4 /* Assets.xcassets in Resources */,
+				C5FAA1C52CD23D1D00EA6AC4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,11 +399,12 @@
 				C55573492CCE7A3B00F0CE3B /* GenerateViewModel.swift in Sources */,
 				C58679B12CC3701800DAF988 /* ContentView.swift in Sources */,
 				C57D618C2CCBB6B600F49481 /* UIExtension.swift in Sources */,
-				FD0BEAF32CC8885500477041 /* GridBView.swift in Sources */,
 				C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */,
 				C57D61852CCA155600F49481 /* OnboardingView.swift in Sources */,
 				FD29965B2CD0C7630012EC55 /* PositionViewModel.swift in Sources */,
 				C5F186F62CD102EA002CC4D4 /* CloseCross.swift in Sources */,
+				C5FAA1C72CD23D1D00EA6AC4 /* FischrWidget.swift in Sources */,
+				C5FAA1C82CD23D1D00EA6AC4 /* RandomisePositionIntent.swift in Sources */,
 				FD0BEBE02CCF4BEB00477041 /* PositionDetailView.swift in Sources */,
 				C57D61892CCBB66E00F49481 /* HistoryItemView.swift in Sources */,
 				C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */,
@@ -411,11 +414,8 @@
 				FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */,
 				FDEABCFA2CD0CE1F00DBF978 /* PositionsModel.swift in Sources */,
 				FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */,
-				FD0BEAF72CC8D8D600477041 /* PlayView.swift in Sources */,
 				C5F186F42CD0E802002CC4D4 /* PiecesModel.swift in Sources */,
 				C5F186F22CD0E6FF002CC4D4 /* String.swift in Sources */,
-				FD0BEAF12CC8884B00477041 /* GridView.swift in Sources */,
-				C57D61132CC880ED00F49481 /* FischrViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +424,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDEABD242CD1B35400DBF978 /* Fischr.xcdatamodeld in Sources */,
+				C5FAA1BE2CD23D1D00EA6AC4 /* AppIntent.swift in Sources */,
+				C5FAA1C92CD25BF200EA6AC4 /* PositionsModel.swift in Sources */,
+				C5FAA1BF2CD23D1D00EA6AC4 /* FischrWidget.swift in Sources */,
+				C5FAA1C02CD23D1D00EA6AC4 /* FischrWidgetBundle.swift in Sources */,
+				C5FAA1C12CD23D1D00EA6AC4 /* FischrWidgetControl.swift in Sources */,
+				C5FAA1C22CD23D1D00EA6AC4 /* FischrWidgetLiveActivity.swift in Sources */,
+				C5FAA1C32CD23D1D00EA6AC4 /* RandomisePositionIntent.swift in Sources */,
+				C5FAA1C42CD23D1D00EA6AC4 /* ToggleFavouriteIntent.swift in Sources */,
 				FDEABD232CD1B26E00DBF978 /* GenerateViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

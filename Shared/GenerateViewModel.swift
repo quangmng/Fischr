@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreData
+import SwiftUI
+import WidgetKit
 
 class GenerateViewModel: ObservableObject {
 	
@@ -14,27 +16,9 @@ class GenerateViewModel: ObservableObject {
 	@Published var storedGeneration: [GenerateEntity] = []
 	@Published var last10Gen: [GenerateEntity] = []
 	@Published var favGen: [GenerateEntity] = []
+    
 	
-		// MARK: - Initializer
-//	init() {
-//		let modelURL = Bundle.main.url(forResource: "Fischr", withExtension: "momd")!
-//		let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)!
-//		container = NSPersistentContainer(name: "Fischr", managedObjectModel: managedObjectModel)
-//		
-//		if let storeURL = FileManager.default
-//			.containerURL(forSecurityApplicationGroupIdentifier: "group.com.yourname.Fischr")?
-//			.appendingPathComponent("Fischr.sqlite") {
-//			let storeDescription = NSPersistentStoreDescription(url: storeURL)
-//			container.persistentStoreDescriptions = [storeDescription]
-//		}
-//		
-//		container.loadPersistentStores { (description, error) in
-//			if let error = error {
-//				print("ERROR: \(error.localizedDescription)")
-//			}
-//		}
-//		fetchCoreData()
-//	}
+		// MARK: - Initialiser
 	init() {
 		container = NSPersistentContainer(name: "Fischr")
 
@@ -51,16 +35,30 @@ class GenerateViewModel: ObservableObject {
 	}
 	
 		// MARK: - New Generation
-	
-	func generateNewRandomPosition() {
-		// Add logic to generate a new random position and save it
-		let newPosition = "960"  // Replace with actual random logic
-		let entity = GenerateEntity(context: container.viewContext)
-		entity.positionGenerated = newPosition
-		entity.isFavourite = false
-		entity.timestamp = Date()
-		saveData()
-	}
+    
+    func generateNewRandomPosition() {
+        // Generate a new random position ID
+        let newPositionID = Int.random(in: 0..<Positions.allPositions.count)
+        let newPosition = String(newPositionID)
+        
+        // Create a new GenerateEntity and save it to Core Data
+        let entity = GenerateEntity(context: container.viewContext)
+        entity.positionGenerated = newPosition
+        entity.isFavourite = false
+        entity.timestamp = Date()
+        
+        // Save to Core Data
+        saveData()
+        
+        // Save to UserDefaults for the widget
+        let defaults = UserDefaults(suiteName: "group.com.yourname.Fischr")
+        defaults?.set(newPosition, forKey: "latestPositionID")
+        defaults?.set(false, forKey: "latestIsFavourite")
+        
+        // Reload the widget timeline to reflect changes
+        WidgetCenter.shared.reloadAllTimelines()
+    }
+
 	
 		// MARK: - Add New Generation
 	func add(newGenerate: String, isFavourite: Bool, date: Date) {
@@ -71,7 +69,7 @@ class GenerateViewModel: ObservableObject {
 		
 		saveData()
 	}
-	
+    
 		// MARK: - Delete Data
 	func deleteData(indexSet: IndexSet) {
 		indexSet.forEach { index in
@@ -119,13 +117,12 @@ class GenerateViewModel: ObservableObject {
 	func updateObj(for entity: GenerateEntity, isFavourite: Bool) {
 		entity.isFavourite = isFavourite
 		saveData()
-	}
-	
-		// MARK: - Example Usage of Update (Optional)
-	func markFirstAsFavourite() {
-		if let firstEntity = storedGeneration.first {
-			updateObj(for: firstEntity, isFavourite: true)
-		}
+        
+        // Update UserDefaults if this is the latest position
+        if entity == fetchLatestPosition() {
+            let defaults = UserDefaults(suiteName: "group.com.yourname.Fischr")
+            defaults?.set(entity.isFavourite, forKey: "latestIsFavourite")
+        }
 	}
 	
 	func fetchLatestPosition() -> GenerateEntity? {
