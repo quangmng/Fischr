@@ -6,16 +6,19 @@
 //
 
 import AppIntents
-import CoreData
+import WidgetKit
 
-struct RandomizePositionIntent: AppIntent {
-	static var title: LocalizedStringResource = "Randomize Position"
+struct RandomisePositionIntent: AppIntent {
+    static var title: LocalizedStringResource = "Randomise Position"
+    static var description = IntentDescription("Randomise a new Chess960 position.")
 
-	func perform() async throws -> some IntentResult {
-		// Logic to randomize the position and save to Core Data
-		let viewModel = GenerateViewModel()
-		viewModel.generateNewRandomPosition()
-		
-		return .result()
-	}
+    func perform() async throws -> some IntentResult {
+        let viewModel = GenerateViewModel()
+        viewModel.generateNewRandomPosition()
+
+        WidgetCenter.shared.reloadAllTimelines()
+
+        return .result()
+    }
 }
+
