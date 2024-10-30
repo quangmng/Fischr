@@ -55,16 +55,7 @@ struct GenerateView: View {
 						.leading()
 						.padding(.horizontal)
 					
-					NavigationLink{
-                        PositionDetailView(viewModel: PositionViewModel(), gvm:GenerateViewModel()) //supposed to navigate to all generation view
-					} label: {
-						Text("All")
-							.foregroundColor(.white)
-							.frame(width: 50, height: 1)
-							.padding()
-							.background(Color.black)
-							.cornerRadius(25)
-					}
+					
 					.padding()
 					.frame(height: 5)
 					
