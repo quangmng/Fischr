@@ -38,7 +38,6 @@ struct PositionDetailView: View {
 						withAnimation {
 							isFavourite.toggle()
 						}
-							//						gvm.updateObj(for: GenerateEntity(), isFavourite: isFavourite)
 						if let entity = gvm.storedGeneration.first(where: { $0.positionGenerated == viewModel.currentPosition }) {
 							gvm.updateObj(for: entity, isFavourite: isFavourite)
 						}

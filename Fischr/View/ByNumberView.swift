@@ -41,10 +41,7 @@ struct ByNumberView: View {
 						withAnimation {
 							isFavourite.toggle()
 						}
-							//						gvm.updateObj(for: GenerateEntity(), isFavourite: isFavourite)
-						if let entity = gvm.storedGeneration.first(where: { $0.positionGenerated == viewModel.currentPosition }) {
-							gvm.updateObj(for: entity, isFavourite: isFavourite)
-						}
+                        gvm.add(newGenerate: viewModel.currentPosition, isFavourite: true, date: Date())
 					} label: {
 						ZStack {
 							RoundedRectangle(cornerRadius: 15)
@@ -73,6 +70,16 @@ struct ByNumberView: View {
 									viewModel.currentPosition = filtered
 								}
 							}
+                            .onSubmit {
+                                if Int(viewModel.currentPosition) ?? 0 < 0 || Int(viewModel.currentPosition) ?? 0 > 960 && viewModel.currentPosition.isEmpty == true{
+                                    
+                                    showAlert = true
+                                    viewModel.currentPosition = ""
+                                } else {
+                                    viewModel.generateNewPositionOnInput(posID: viewModel.currentPosition)
+                                    gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
+                                }
+                            }
 					.leading()
 					.font(.custom("VoidSemibold", size: 45))
 					.padding(8)
@@ -126,39 +133,10 @@ struct ByNumberView: View {
 						
 					}
 					.scaleEffect(0.85)
-					
 				}
-				
-				
-				
+
 				Spacer().frame(height: 90)
 				
-				VStack {
-					HStack {
-							// MARK: - Regenerate button
-						Button {
-							if Int(viewModel.currentPosition) ?? 0 < 0 || Int(viewModel.currentPosition) ?? 0 > 960{
-								
-								showAlert = true
-								
-							}
-							else{
-							gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
-								isFavourite = false
-							}
-						} label: {
-							ZStack {
-								RoundedRectangle(cornerRadius: 15)
-									.frame(width: 180, height: 50)
-									.foregroundStyle(Color.buttonBlue)
-								HStack {
-									Image(systemName: "shuffle")
-									Text("Save")
-								}
-							}
-						}
-					}
-				}
 			}
 			.alert("Invaild Number Input", isPresented: $showAlert){
 			}message: {
@@ -171,7 +149,9 @@ struct ByNumberView: View {
 				ShareSheet(activityItems: ["Check out this Chess960 position: #\(viewModel.positionID)"])
 			}
 		}
-		
+        .onAppear{
+            viewModel.currentPosition = ""
+        }
 	}
 	
 		

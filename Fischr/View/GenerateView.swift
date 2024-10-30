@@ -36,7 +36,7 @@ struct GenerateView: View {
 					
 					HStack {
 						NavigationLink{
-							PositionDetailView(viewModel: viewModel, gvm: GenerateViewModel())
+							ByNumberView(viewModel: viewModel, gvm: GenerateViewModel())
 						} label:{
 							NumberButton()
 							
@@ -71,15 +71,16 @@ struct GenerateView: View {
 				}
 				ScrollView(.horizontal) {
 					
-//						.padding()
 					
 						// Use ForEach loop to display recent matches using history Item View
                     
                     HStack {
-						ForEach(gvm.storedGeneration.prefix(10), id:\.self){ index in
-                            
-                            HistoryItemView(positionGenerated: index.positionGenerated ?? "", isFavourite: index.isFavourite)
-                            
+                        ForEach(gvm.storedGeneration.suffix(10), id:\.self){ index in
+                            NavigationLink(destination:
+                                            SavedDetailView(isFavourite: index.isFavourite, viewModel: PositionViewModel(), selectedOption: "Text", gvm: GenerateViewModel(), posID: index.positionGenerated ?? "0")){
+                                HistoryItemView(positionGenerated: index.positionGenerated ?? "", isFavourite: index.isFavourite)
+                            }
+                                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                     .padding()
@@ -88,8 +89,9 @@ struct GenerateView: View {
 			}
 			.navigationTitle("Generate")
 		}
-		.onAppear{gvm.fetchCoreData()}
+        .onAppear{gvm.fetchCoreData()}
 	}
+    
 	
 	private func optionCard(systemName: String? = nil, imageName: String? = nil, text: String, color: Color) -> some View {
 		ZStack {

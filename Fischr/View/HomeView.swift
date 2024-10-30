@@ -35,7 +35,7 @@ struct HomeView: View {
 					
 					ScrollView(.horizontal){
 						HStack{
-							ForEach(gvm.storedGeneration){ index in
+                            ForEach(gvm.storedGeneration){ index in
 								NavigationLink(destination:
 												SavedDetailView(isFavourite: index.isFavourite, viewModel: PositionViewModel(), selectedOption: "Text", gvm: GenerateViewModel(), posID: index.positionGenerated ?? "0")){
 									HistoryItemView(positionGenerated: index.positionGenerated ?? "", isFavourite: index.isFavourite)

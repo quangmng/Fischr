@@ -25,6 +25,13 @@ class PositionViewModel: ObservableObject {
         separateChar(posID: id)
     }
     
+    func generateNewPositionOnInput(posID: String) {
+        let id = posID
+        self.currentPosition = id
+        self.positionID = Int(id) ?? 0
+        separateChar(posID: Int(id) ?? 0)
+    }
+    
     func separateChar(posID: Int) {
         let positionString = Positions.allPositions[posID]
         self.container = positionString.map { String($0) }
@@ -34,13 +41,6 @@ class PositionViewModel: ObservableObject {
     func textToImage() {
         self.vPosition = container.map { imageName(for: $0) }
     }
-	
-	func byNumber(posID: Int){
-		let id = posID
-		
-		separateChar(posID: posID)
-		
-	}
     
     func imageName(for character: String) -> String {
         // Map each character to its corresponding image name
