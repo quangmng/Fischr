@@ -48,6 +48,7 @@ class GenerateViewModel: ObservableObject {
 				print("ERROR: \(error.localizedDescription)")
 			}
 		}
+		fetchCoreData()
 	}
 	
 		// MARK: - New Generation
@@ -92,7 +93,7 @@ class GenerateViewModel: ObservableObject {
 	}
 	
 		// MARK: - Fetch Core Data
-	private func fetchCoreData() {
+	func fetchCoreData() {
 		let request = NSFetchRequest<GenerateEntity>(entityName: "GenerateEntity")
 		
 		do {
@@ -104,15 +105,15 @@ class GenerateViewModel: ObservableObject {
 	
 		// MARK: - Fetch Last 10 Generations
 	func checkLast10() {
-		let lastGen = storedGeneration.sorted {
-			($0.timestamp ?? Date()) > ($1.timestamp ?? Date())
-		}
-		self.last10Gen = Array(lastGen.prefix(10))
+		fetchCoreData()
+		self.last10Gen = Array(storedGeneration.prefix(10))
+		saveData()
 	}
 	
 		// MARK: - Fetch Favourite Generations
 	func checkFav() {
 		self.favGen = storedGeneration.filter { $0.isFavourite }
+		saveData()
 	}
 	
 		// MARK: - Update Entity

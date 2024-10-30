@@ -34,6 +34,13 @@ class PositionViewModel: ObservableObject {
     func textToImage() {
         self.vPosition = container.map { imageName(for: $0) }
     }
+	
+	func byNumber(posID: Int){
+		let id = posID
+		
+		separateChar(posID: posID)
+		
+	}
     
     private func imageName(for character: String) -> String {
         // Map each character to its corresponding image name

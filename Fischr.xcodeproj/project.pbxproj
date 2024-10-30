@@ -35,6 +35,9 @@
 		FD0BEBE02CCF4BEB00477041 /* PositionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */; };
 		FD0BEBE22CD0496000477041 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0BEBE12CD0496000477041 /* BoardView.swift */; };
 		FD29965B2CD0C7630012EC55 /* PositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */; };
+		FD30408B2CD20CAB00872066 /* SavedDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30408A2CD20CAB00872066 /* SavedDetailView.swift */; };
+		FD30408D2CD2128D00872066 /* getStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30408C2CD2128D00872066 /* getStartedView.swift */; };
+		FD30408F2CD2183B00872066 /* ByNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD30408E2CD2183B00872066 /* ByNumberView.swift */; };
 		FDEABCFA2CD0CE1F00DBF978 /* PositionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */; };
 		FDEABD042CD1951500DBF978 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEABD032CD1951500DBF978 /* WidgetKit.framework */; };
 		FDEABD062CD1951500DBF978 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDEABD052CD1951500DBF978 /* SwiftUI.framework */; };
@@ -99,6 +102,9 @@
 		FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionDetailView.swift; sourceTree = "<group>"; };
 		FD0BEBE12CD0496000477041 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		FD29965A2CD0C7630012EC55 /* PositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionViewModel.swift; sourceTree = "<group>"; };
+		FD30408A2CD20CAB00872066 /* SavedDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDetailView.swift; sourceTree = "<group>"; };
+		FD30408C2CD2128D00872066 /* getStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStartedView.swift; sourceTree = "<group>"; };
+		FD30408E2CD2183B00872066 /* ByNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByNumberView.swift; sourceTree = "<group>"; };
 		FDEABCF92CD0CE1B00DBF978 /* PositionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsModel.swift; sourceTree = "<group>"; };
 		FDEABD012CD1951500DBF978 /* FischrWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FischrWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDEABD032CD1951500DBF978 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -221,6 +227,9 @@
 				FD0BEBDF2CCF4BEB00477041 /* PositionDetailView.swift */,
 				C57D618D2CCBB70A00F49481 /* SettingsView.swift */,
 				C57D61862CCBB65900F49481 /* GenerateView.swift */,
+				FD30408E2CD2183B00872066 /* ByNumberView.swift */,
+				FD30408A2CD20CAB00872066 /* SavedDetailView.swift */,
+				FD30408C2CD2128D00872066 /* getStartedView.swift */,
 				C57D61832CCA152000F49481 /* Helpers */,
 				C58679A92CC3701800DAF988 /* ContentView.swift */,
 			);
@@ -401,11 +410,14 @@
 				C58679B22CC3701800DAF988 /* Fischr.xcdatamodeld in Sources */,
 				C57D61852CCA155600F49481 /* OnboardingView.swift in Sources */,
 				FD29965B2CD0C7630012EC55 /* PositionViewModel.swift in Sources */,
+				FD30408D2CD2128D00872066 /* getStartedView.swift in Sources */,
+				FD30408B2CD20CAB00872066 /* SavedDetailView.swift in Sources */,
 				C5F186F62CD102EA002CC4D4 /* CloseCross.swift in Sources */,
 				FD0BEBE02CCF4BEB00477041 /* PositionDetailView.swift in Sources */,
 				C57D61892CCBB66E00F49481 /* HistoryItemView.swift in Sources */,
 				C58679B32CC3701800DAF988 /* FischrApp.swift in Sources */,
 				C57D618E2CCBB70A00F49481 /* SettingsView.swift in Sources */,
+				FD30408F2CD2183B00872066 /* ByNumberView.swift in Sources */,
 				C58679B42CC3701800DAF988 /* Persistence.swift in Sources */,
 				C57D61872CCBB65900F49481 /* GenerateView.swift in Sources */,
 				FD0BEAF52CC8D40100477041 /* HomeView.swift in Sources */,

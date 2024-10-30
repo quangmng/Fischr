@@ -1,27 +1,22 @@
-	//
-	//  PositionDetailView.swift
-	//  Fischr
-	//
-	//  Created by Wendy Zhou on 28/10/2024.
-	//
-	// This file shows the details with the generated result
+//
+//  SavedDetailView.swift
+//  Fischr
+//
+//  Created by Wendy Zhou on 30/10/2024.
+//
 
 import SwiftUI
-import UIKit
 
-struct PositionDetailView: View {
+struct SavedDetailView: View {
 	
-	@State private var isFavourite: Bool = false
+	@State var isFavourite: Bool = false
 	@State private var isSharing: Bool = false
-	@ObservedObject private var viewModel: PositionViewModel
-	@State private var selectedOption = "Text"
+	@ObservedObject  var viewModel: PositionViewModel
+	@State var selectedOption = "Text"
 	let options = ["Text","Visual"]
-	@ObservedObject private var gvm: GenerateViewModel
+	@ObservedObject var gvm: GenerateViewModel
+	var posID: String
 	
-	init(viewModel: PositionViewModel, gvm: GenerateViewModel) {
-		self.viewModel = viewModel
-		self.gvm = gvm
-	}
 	
 	var body: some View {
 		NavigationStack {
@@ -62,7 +57,7 @@ struct PositionDetailView: View {
 				}
 				.padding(.horizontal, 8)
 				
-				Text("\(viewModel.positionID)")
+				Text(posID)
 					.leading()
 					.font(.custom("VoidSemibold", size: 45))
 					.padding(8)
@@ -125,22 +120,7 @@ struct PositionDetailView: View {
 				
 				VStack {
 					HStack {
-							// MARK: - Regenerate button
-						Button {
-							viewModel.generateNewPosition()
-							gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
-							isFavourite = false
-						} label: {
-							ZStack {
-								RoundedRectangle(cornerRadius: 15)
-									.frame(width: 180, height: 50)
-									.foregroundStyle(Color.buttonBlue)
-								HStack {
-									Image(systemName: "shuffle")
-									Text("Regenerate")
-								}
-							}
-						}
+				
 					}
 				}
 			}
@@ -151,19 +131,11 @@ struct PositionDetailView: View {
 			.sheet(isPresented: $isSharing) {
 				ShareSheet(activityItems: ["Check out this Chess960 position: #\(viewModel.positionID)"])
 			}
-				// temporary
-			.onAppear(){
-					//                viewModel.generateNewPosition()
-				gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
-				
-			}
 		}
 	}
-	
-	
 }
 
-struct ShareSheet: UIViewControllerRepresentable {
+struct ShareSheet2: UIViewControllerRepresentable {
 	let activityItems: [Any]
 	
 	func makeUIViewController(context: Context) -> UIActivityViewController {
@@ -174,6 +146,7 @@ struct ShareSheet: UIViewControllerRepresentable {
 }
 
 
+
 #Preview {
-	PositionDetailView(viewModel: PositionViewModel(), gvm: GenerateViewModel())
+	SavedDetailView(viewModel: PositionViewModel(), gvm: GenerateViewModel(), posID: "330")
 }

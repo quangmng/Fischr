@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 import CoreData
-import Fischr
+ 
 
 
 struct SimpleEntry: TimelineEntry {
