@@ -4,7 +4,7 @@
 ### Technology Stack:
 - Swift/SwiftUI
 
-###System Extension:
+### System Extension:
 - Widget
 - Share
 
@@ -27,4 +27,11 @@ N/A
 
 ### Instructions
 
-
+- When opening the app, first-time users will be navigated to the onboarding view, please follow the instructions inside.
+- Home view displays your favourite generation, if there is nothing there, that means you haven't created or generated anything, please tab the Get Start Card or tab bar below and navigate to Generate View.
+- Once you navigate to generate the view, you will see history at the bottom showing the recent 10 generations if you generated anything.
+In Generate View, you have two choices. One is "Random," which generates the opening position automatically. The other is "By Number," which lets you input the Generation Number.
+- After you tab one of the cards, it will navigate you to Position Detail View, where you will see the generated position ID, and pieces order either in text or in image.
+- If you are not satisfied with the current generation, you can press the regenerate button below to generate a new opening position
+- If you like the position and wish to save it, you can press the heart at the top right corner and it will be saved as your favourite, showing in the Home View. You can also share this generation with your friends via the share button near the heart.
+- Now, place the pieces on the board accordingly and enjoy your game!
