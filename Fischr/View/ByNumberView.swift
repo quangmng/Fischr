@@ -71,10 +71,10 @@ struct ByNumberView: View {
 								}
 							}
                             .onSubmit {
-                                if Int(viewModel.currentPosition) ?? 0 < 0 || Int(viewModel.currentPosition) ?? 0 > 960 && viewModel.currentPosition.isEmpty == true{
+                                if Int(viewModel.currentPosition) ?? -1 < 0 || Int(viewModel.currentPosition) ?? -1 >= 960 || viewModel.currentPosition.isEmpty == true{
                                     
                                     showAlert = true
-                                    viewModel.currentPosition = ""
+                                    viewModel.currentPosition = "0"
                                 } else {
                                     viewModel.generateNewPositionOnInput(posID: viewModel.currentPosition)
                                     gvm.add(newGenerate: viewModel.currentPosition, isFavourite: false, date: Date())
